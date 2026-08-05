@@ -498,7 +498,6 @@ class RestfulControllerTest extends TestCase
     {
         $r             = new ReflectionObject($this->controller);
         $getIdentifier = $r->getMethod('getIdentifier');
-        $getIdentifier->setAccessible(true);
 
         $this->controller->setIdentifierName('name');
 
