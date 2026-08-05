@@ -42,8 +42,7 @@ trait PathControllerTrait
 
         $serviceListener = new ServiceListenerFactory();
         $r               = new ReflectionProperty($serviceListener, 'defaultServiceConfig');
-        $r->setAccessible(true);
-        $serviceConfig = $r->getValue($serviceListener);
+        $serviceConfig   = $r->getValue($serviceListener);
 
         $serviceConfig = ArrayUtils::merge(
             $serviceConfig,

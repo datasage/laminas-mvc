@@ -55,8 +55,7 @@ class ApplicationTest extends TestCase
     {
         $serviceListener = new ServiceListenerFactory();
         $r               = new ReflectionProperty($serviceListener, 'defaultServiceConfig');
-        $r->setAccessible(true);
-        $serviceConfig = $r->getValue($serviceListener);
+        $serviceConfig   = $r->getValue($serviceListener);
 
         $serviceConfig = ArrayUtils::merge(
             $serviceConfig,
@@ -172,7 +171,6 @@ class ApplicationTest extends TestCase
     private function getIdentifiersFromSharedEventManager(SharedEventManager $events): array
     {
         $r = new ReflectionProperty($events, 'identifiers');
-        $r->setAccessible(true);
         return $r->getValue($events);
     }
 
@@ -211,8 +209,7 @@ class ApplicationTest extends TestCase
 
     public function testBootstrapAlwaysRegistersDefaultListeners(): void
     {
-        $r = new ReflectionProperty($this->application, 'defaultListeners');
-        $r->setAccessible(true);
+        $r                     = new ReflectionProperty($this->application, 'defaultListeners');
         $defaultListenersNames = $r->getValue($this->application);
         $defaultListeners      = [];
         foreach ($defaultListenersNames as $defaultListenerName) {
@@ -552,7 +549,6 @@ class ApplicationTest extends TestCase
     public function testCompleteRequestShouldReturnApplicationInstance(): void
     {
         $r = new ReflectionMethod($this->application, 'completeRequest');
-        $r->setAccessible(true);
 
         $this->application->bootstrap();
         $event  = $this->application->getMvcEvent();
@@ -668,7 +664,6 @@ class ApplicationTest extends TestCase
 
         // Intentionally not calling bootstrap; setting mvc event
         $r = new ReflectionProperty($this->application, 'event');
-        $r->setAccessible(true);
         $r->setValue($this->application, $event);
 
         // Setup listeners that stop propagation, but do nothing else
