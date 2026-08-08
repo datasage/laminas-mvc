@@ -14,9 +14,9 @@ class ViewManagerFactoryTest extends TestCase
 {
     private function createContainer(): ContainerInterface
     {
-        $http      = $this->createMock(HttpViewManager::class);
+        $http      = $this->createStub(HttpViewManager::class);
         $container = $this->createMock(ContainerInterface::class);
-        $container->method('get')->with('HttpViewManager')->willReturn($http);
+        $container->expects($this->atLeastOnce())->method('get')->with('HttpViewManager')->willReturn($http);
         return $container;
     }
 

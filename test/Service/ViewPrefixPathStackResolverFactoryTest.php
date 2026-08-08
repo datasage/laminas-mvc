@@ -13,7 +13,7 @@ class ViewPrefixPathStackResolverFactoryTest extends TestCase
 {
     public function testCreateService()
     {
-        $serviceLocator = $this->createMock(ServiceLocatorInterface::class);
+        $serviceLocator = $this->createStub(ServiceLocatorInterface::class);
         $serviceLocator->method('get')->willReturn([
             'view_manager' => [
                 'prefix_template_path_stack' => [

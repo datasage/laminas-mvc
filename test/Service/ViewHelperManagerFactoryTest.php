@@ -82,14 +82,14 @@ class ViewHelperManagerFactoryTest extends TestCase
             __FUNCTION__
         ));
 
-        $routeMatch = $this->createMock(RouteMatch::class);
-        $mvcEvent   = $this->createMock(MvcEvent::class);
+        $routeMatch = $this->createStub(RouteMatch::class);
+        $mvcEvent   = $this->createStub(MvcEvent::class);
         $mvcEvent->method('getRouteMatch')->willReturn($routeMatch);
 
-        $application = $this->createMock(Application::class);
+        $application = $this->createStub(Application::class);
         $application->method('getMvcEvent')->willReturn($mvcEvent);
 
-        $router = $this->createMock(RouteStackInterface::class);
+        $router = $this->createStub(RouteStackInterface::class);
 
         $this->services->setService('HttpRouter', $router);
         $this->services->setService('Router', $router);

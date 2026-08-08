@@ -19,7 +19,7 @@ class SimpleStreamResponseSenderTest extends TestCase
 {
     public function testSendResponseIgnoresInvalidResponseTypes(): void
     {
-        $mockResponse          = $this->createMock(ResponseInterface::class);
+        $mockResponse          = $this->createStub(ResponseInterface::class);
         $mockSendResponseEvent = $this->getSendResponseEventMock($mockResponse);
         $responseSender        = new SimpleStreamResponseSender();
         ob_start();
@@ -52,7 +52,7 @@ class SimpleStreamResponseSenderTest extends TestCase
         $mockSendResponseEvent = $this->getMockBuilder(SendResponseEvent::class)
             ->onlyMethods(['getResponse'])
             ->getMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($response);
+        $mockSendResponseEvent->method('getResponse')->willReturn($response);
         return $mockSendResponseEvent;
     }
 }

@@ -15,9 +15,9 @@ class ViewJsonStrategyFactoryTest extends TestCase
 {
     private function createContainer(): ContainerInterface
     {
-        $renderer  = $this->createMock(JsonRenderer::class);
+        $renderer  = $this->createStub(JsonRenderer::class);
         $container = $this->createMock(ContainerInterface::class);
-        $container->method('get')->with('ViewJsonRenderer')->willReturn($renderer);
+        $container->expects($this->atLeastOnce())->method('get')->with('ViewJsonRenderer')->willReturn($renderer);
         return $container;
     }
 

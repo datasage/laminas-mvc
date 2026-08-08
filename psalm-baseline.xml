@@ -2535,6 +2535,12 @@
       <code><![CDATA[LazyControllerAbstractFactoryTest]]></code>
     </ClassMustBeFinal>
     <MixedMethodCall>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
       <code><![CDATA[willReturn]]></code>
       <code><![CDATA[willReturn]]></code>
       <code><![CDATA[willReturn]]></code>
@@ -2559,12 +2565,12 @@
       <code><![CDATA[\ZendTest\Mvc\Controller\TestAsset\SampleInterface]]></code>
     </UndefinedClass>
     <UndefinedInterfaceMethod>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[expects]]></code>
       <code><![CDATA[method]]></code>
       <code><![CDATA[method]]></code>
       <code><![CDATA[method]]></code>
@@ -3452,8 +3458,6 @@
     </MissingReturnType>
     <MixedMethodCall>
       <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
-      <code><![CDATA[method]]></code>
       <code><![CDATA[willReturn]]></code>
       <code><![CDATA[willReturn]]></code>
     </MixedMethodCall>
@@ -3462,8 +3466,8 @@
     </RedundantCondition>
     <UndefinedMethod>
       <code><![CDATA[expects]]></code>
-      <code><![CDATA[expects]]></code>
-      <code><![CDATA[expects]]></code>
+      <code><![CDATA[method]]></code>
+      <code><![CDATA[method]]></code>
     </UndefinedMethod>
   </file>
   <file src="test/ResponseSender/SendResponseEventTest.php">
@@ -3804,7 +3808,7 @@
       <code><![CDATA[ViewFeedStrategyFactoryTest]]></code>
     </ClassMustBeFinal>
     <DeprecatedClass>
-      <code><![CDATA[$this->createMock(FeedRenderer::class)]]></code>
+      <code><![CDATA[$this->createStub(FeedRenderer::class)]]></code>
       <code><![CDATA[FeedRenderer::class]]></code>
       <code><![CDATA[FeedStrategy::class]]></code>
     </DeprecatedClass>
@@ -3840,14 +3844,14 @@
       <code><![CDATA[$name]]></code>
     </PossiblyUnusedParam>
     <UnevaluatedCode>
-      <code><![CDATA[$application = $this->createMock(Application::class);]]></code>
+      <code><![CDATA[$application = $this->createStub(Application::class);]]></code>
       <code><![CDATA[$application->method('getMvcEvent')->willReturn($mvcEvent);]]></code>
       <code><![CDATA[$helper  = $manager->get($name);]]></code>
       <code><![CDATA[$manager = $this->factory->__invoke($this->services, HelperPluginManager::class);]]></code>
-      <code><![CDATA[$mvcEvent   = $this->createMock(MvcEvent::class);]]></code>
+      <code><![CDATA[$mvcEvent   = $this->createStub(MvcEvent::class);]]></code>
       <code><![CDATA[$mvcEvent->method('getRouteMatch')->willReturn($routeMatch);]]></code>
-      <code><![CDATA[$routeMatch = $this->createMock(RouteMatch::class);]]></code>
-      <code><![CDATA[$router = $this->createMock(RouteStackInterface::class);]]></code>
+      <code><![CDATA[$routeMatch = $this->createStub(RouteMatch::class);]]></code>
+      <code><![CDATA[$router = $this->createStub(RouteStackInterface::class);]]></code>
       <code><![CDATA[$this->assertAttributeSame($routeMatch, 'routeMatch', $helper, 'Route match was not injected');]]></code>
       <code><![CDATA[$this->assertAttributeSame($router, 'router', $helper, 'Router was not injected');]]></code>
       <code><![CDATA[$this->services->setService('Application', $application);]]></code>
@@ -3861,7 +3865,7 @@
       <code><![CDATA[ViewJsonStrategyFactoryTest]]></code>
     </ClassMustBeFinal>
     <DeprecatedClass>
-      <code><![CDATA[$this->createMock(JsonRenderer::class)]]></code>
+      <code><![CDATA[$this->createStub(JsonRenderer::class)]]></code>
       <code><![CDATA[JsonRenderer::class]]></code>
       <code><![CDATA[JsonStrategy::class]]></code>
     </DeprecatedClass>

@@ -21,7 +21,7 @@ class SendResponseListenerFactoryTest extends TestCase
 {
     public function testFactoryReturnsListenerWithEventManagerFromContainer()
     {
-        $sharedEvents = $this->createMock(SharedEventManagerInterface::class);
+        $sharedEvents = $this->createStub(SharedEventManagerInterface::class);
         $events       = $this->createMock(EventManagerInterface::class);
         $events->method('getSharedManager')->willReturn($sharedEvents);
 
@@ -58,7 +58,7 @@ class SendResponseListenerFactoryTest extends TestCase
             });
 
         $container = $this->createMock(ContainerInterface::class);
-        $container->method('get')->with('EventManager')->willReturn($events);
+        $container->expects($this->atLeastOnce())->method('get')->with('EventManager')->willReturn($events);
 
         $factory  = new SendResponseListenerFactory();
         $listener = $factory($container);

@@ -17,9 +17,9 @@ class PhpEnvironmentResponseSenderTest extends TestCase
 {
     public function testSendResponseIgnoresInvalidResponseTypes()
     {
-        $mockResponse          = $this->createMock(ResponseInterface::class);
+        $mockResponse          = $this->createStub(ResponseInterface::class);
         $mockSendResponseEvent = $this->getSendResponseEventMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
+        $mockSendResponseEvent->method('getResponse')->willReturn($mockResponse);
         $responseSender = new PhpEnvironmentResponseSender();
         ob_start();
         $responseSender($mockSendResponseEvent);
@@ -29,10 +29,10 @@ class PhpEnvironmentResponseSenderTest extends TestCase
 
     public function testSendResponseTwoTimesPrintsResponseOnlyOnce()
     {
-        $mockResponse = $this->createMock(Response::class);
-        $mockResponse->expects($this->any())->method('getContent')->willReturn('body');
+        $mockResponse = $this->createStub(Response::class);
+        $mockResponse->method('getContent')->willReturn('body');
         $mockSendResponseEvent = $this->getSendResponseEventMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
+        $mockSendResponseEvent->method('getResponse')->willReturn($mockResponse);
         $mockSendResponseEvent->expects($this->once())->method('setContentSent');
         $responseSender = new PhpEnvironmentResponseSender();
         ob_start();
@@ -53,7 +53,7 @@ class PhpEnvironmentResponseSenderTest extends TestCase
             ->onlyMethods(['getResponse', 'contentSent', 'setContentSent'])
             ->getMock();
 
-        $mockSendResponseEvent->expects($this->any())
+        $mockSendResponseEvent
             ->method('contentSent')
             ->willReturnCallback(static function () use (&$returnValue): bool {
                 if (false === $returnValue) {

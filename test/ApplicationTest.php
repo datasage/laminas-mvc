@@ -484,7 +484,7 @@ class ApplicationTest extends TestCase
     {
         $application       = $this->setupPathController(false);
         $controllerManager = $application->getServiceManager()->get('ControllerManager');
-        $model             = $this->createMock(ViewModel::class);
+        $model             = $this->createStub(ViewModel::class);
         $application->getEventManager()->attach(
             MvcEvent::EVENT_DISPATCH_ERROR,
             static function ($e) use ($model): void {
@@ -555,7 +555,7 @@ class ApplicationTest extends TestCase
     {
         $this->application->bootstrap();
 
-        $response     = $this->createMock(ResponseInterface::class);
+        $response     = $this->createStub(ResponseInterface::class);
         $finishMock   = $this->createMock(MvcEventListenerInterface::class);
         $routeMock    = $this->createMock(MvcEventListenerInterface::class);
         $dispatchMock = $this->createMock(MvcEventListenerInterface::class);
@@ -585,7 +585,7 @@ class ApplicationTest extends TestCase
     {
         $this->application->bootstrap();
 
-        $response     = $this->createMock(ResponseInterface::class);
+        $response     = $this->createStub(ResponseInterface::class);
         $errorMock    = $this->createMock(MvcEventListenerInterface::class);
         $finishMock   = $this->createMock(MvcEventListenerInterface::class);
         $routeMock    = $this->createMock(MvcEventListenerInterface::class);

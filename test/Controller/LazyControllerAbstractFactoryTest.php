@@ -113,8 +113,8 @@ class LazyControllerAbstractFactoryTest extends TestCase
     public function testFactoryInjectsConfigServiceForConfigArgumentsTypeHintedAsArray(): void
     {
         $config = ['foo' => 'bar'];
-        $this->container->method('has')->with('config')->willReturn(true);
-        $this->container->method('get')->with('config')->willReturn($config);
+        $this->container->expects($this->atLeastOnce())->method('has')->with('config')->willReturn(true);
+        $this->container->expects($this->atLeastOnce())->method('get')->with('config')->willReturn($config);
 
         $factory    = new LazyControllerAbstractFactory();
         $controller = $factory($this->container, ControllerAcceptingConfigToConstructor::class);
@@ -124,9 +124,12 @@ class LazyControllerAbstractFactoryTest extends TestCase
 
     public function testFactoryCanInjectKnownTypeHintedServices(): void
     {
-        $sample = $this->createMock(SampleInterface::class);
-        $this->container->method('has')->with(SampleInterface::class)->willReturn(true);
-        $this->container->method('get')->with(SampleInterface::class)->willReturn($sample);
+        $sample = $this->createStub(SampleInterface::class);
+        $this->container->expects($this->atLeastOnce())->method('has')->with(SampleInterface::class)->willReturn(true);
+        $this->container->expects($this->atLeastOnce())
+            ->method('get')
+            ->with(SampleInterface::class)
+            ->willReturn($sample);
 
         $factory    = new LazyControllerAbstractFactory();
         $controller = $factory(
@@ -139,9 +142,12 @@ class LazyControllerAbstractFactoryTest extends TestCase
 
     public function testFactoryResolvesTypeHintsForServicesToWellKnownServiceNames(): void
     {
-        $validators = $this->createMock(ValidatorPluginManager::class);
-        $this->container->method('has')->with('ValidatorManager')->willReturn(true);
-        $this->container->method('get')->with('ValidatorManager')->willReturn($validators);
+        $validators = $this->createStub(ValidatorPluginManager::class);
+        $this->container->expects($this->atLeastOnce())->method('has')->with('ValidatorManager')->willReturn(true);
+        $this->container->expects($this->atLeastOnce())
+            ->method('get')
+            ->with('ValidatorManager')
+            ->willReturn($validators);
 
         $factory    = new LazyControllerAbstractFactory();
         $controller = $factory(
@@ -157,7 +163,7 @@ class LazyControllerAbstractFactoryTest extends TestCase
 
     public function testFactoryCanSupplyAMixOfParameterTypes(): void
     {
-        $validators = $this->createMock(ValidatorPluginManager::class);
+        $validators = $this->createStub(ValidatorPluginManager::class);
         $this->container->method('has')->willReturnMap([
             ['ValidatorManager', true],
             [SampleInterface::class, true],
