@@ -11,6 +11,7 @@ use Laminas\View\Helper\BasePath;
 use Laminas\View\Helper\Doctype;
 use Laminas\View\Helper\Url;
 use Laminas\View\HelperPluginManager;
+use Override;
 
 use function is_callable;
 
@@ -36,6 +37,7 @@ class ViewHelperManagerFactory extends AbstractPluginManagerFactory
      * @return HelperPluginManager
      * @throws ServiceNotCreatedException
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $options                = $options ?: [];

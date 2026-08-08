@@ -26,6 +26,8 @@ use LaminasTest\Mvc\Controller\Plugin\TestAsset\ListenerStub;
 use LaminasTest\Mvc\Controller\TestAsset\ForwardController;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use LaminasTest\Mvc\Controller\TestAsset\UneventfulController;
+use Override;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -38,11 +40,12 @@ class ForwardTest extends TestCase
     private Forward $plugin;
     private ServiceManager $services;
 
+    #[Override]
     public function setUp(): void
     {
         $eventManager    = $this->createEventManager(new SharedEventManager());
         $mockApplication = $this->createMock(ApplicationInterface::class);
-        $mockApplication->expects($this->any())->method('getEventManager')->will($this->returnValue($eventManager));
+        $mockApplication->expects($this->any())->method('getEventManager')->willReturn($eventManager);
 
         $event = new MvcEvent();
         $event->setApplication($mockApplication);
@@ -192,14 +195,14 @@ class ForwardTest extends TestCase
         $events       = $services->get('EventManager');
         $sharedEvents = $this->createMock(SharedEventManagerInterface::class);
         // @codingStandardsIgnoreStart
-        $sharedEvents->expects($this->any())->method('getListeners')->will($this->returnValue([
+        $sharedEvents->expects($this->any())->method('getListeners')->willReturn([
             static function ($e) : void {
             }
-        ]));
+        ]);
         // @codingStandardsIgnoreEnd
         $events      = $this->createEventManager($sharedEvents);
         $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->will($this->returnValue($events));
+        $application->expects($this->any())->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 
@@ -227,11 +230,11 @@ class ForwardTest extends TestCase
             ->with(DispatchableInterface::class, MvcEvent::EVENT_DISPATCH, $myCallback, -50);
         $sharedEvents->expects($this->any())
             ->method('getListeners')
-            ->will($this->returnValue([-50 => [$myCallback]]));
+            ->willReturn([-50 => [$myCallback]]);
         $events = $this->createEventManager($sharedEvents);
 
         $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->will($this->returnValue($events));
+        $application->expects($this->any())->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 
@@ -262,11 +265,11 @@ class ForwardTest extends TestCase
             ->with(DispatchableInterface::class, MvcEvent::EVENT_DISPATCH, $myCallback, -50);
         $sharedEvents->expects($this->any())
             ->method('getListeners')
-            ->will($this->returnValue([-50 => [$myCallback]]));
+            ->willReturn([-50 => [$myCallback]]);
         $events = $this->createEventManager($sharedEvents);
 
         $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->will($this->returnValue($events));
+        $application->expects($this->any())->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 
@@ -322,9 +325,7 @@ class ForwardTest extends TestCase
         $this->assertEquals([], $result['params']);
     }
 
-    /**
-     * @group 6398
-     */
+    #[Group('6398')]
     public function testSetListenersToDetachIsFluent(): void
     {
         $this->assertSame($this->plugin, $this->plugin->setListenersToDetach([]));

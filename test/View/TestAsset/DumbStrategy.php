@@ -8,6 +8,7 @@ use ArrayObject;
 use Laminas\View\Model\ModelInterface as Model;
 use Laminas\View\Renderer\RendererInterface as Renderer;
 use Laminas\View\Resolver\ResolverInterface as Resolver;
+use Override;
 
 use function array_key_exists;
 use function array_merge;
@@ -22,18 +23,21 @@ class DumbStrategy implements Renderer
     protected Resolver|null $resolver = null;
 
     /** @inheritDoc */
+    #[Override]
     public function getEngine()
     {
         return $this;
     }
 
     /** @inheritDoc */
+    #[Override]
     public function setResolver(Resolver $resolver)
     {
         $this->resolver = $resolver;
     }
 
     /** @inheritDoc */
+    #[Override]
     public function render($nameOrModel, $values = null)
     {
         $options = [];

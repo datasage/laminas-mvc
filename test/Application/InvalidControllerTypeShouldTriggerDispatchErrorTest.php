@@ -6,15 +6,14 @@ namespace LaminasTest\Mvc\Application;
 
 use Laminas\Mvc\Application;
 use Laminas\Mvc\MvcEvent;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 class InvalidControllerTypeShouldTriggerDispatchErrorTest extends TestCase
 {
     use InvalidControllerTypeTrait;
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testInvalidControllerTypeShouldTriggerDispatchError()
     {
         $application = $this->prepareApplication();

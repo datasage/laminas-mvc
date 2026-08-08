@@ -6,6 +6,7 @@ use Laminas\Mvc\Exception;
 use Laminas\Mvc\Exception\DomainException;
 use Laminas\Mvc\MvcEvent;
 use Laminas\View\Model\ViewModel;
+use Override;
 
 use function method_exists;
 
@@ -52,6 +53,7 @@ abstract class AbstractActionController extends AbstractController
      * @return mixed
      * @throws Exception\DomainException
      */
+    #[Override]
     public function onDispatch(MvcEvent $e)
     {
         $routeMatch = $e->getRouteMatch();

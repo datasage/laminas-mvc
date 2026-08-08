@@ -7,6 +7,7 @@ namespace LaminasTest\Mvc\Controller\TestAsset;
 use Laminas\Http\Response;
 use Laminas\Mvc\Controller\AbstractRestfulController;
 use Laminas\Stdlib\ResponseInterface;
+use Override;
 use Traversable;
 
 use function array_merge;
@@ -24,6 +25,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @return mixed
      */
+    #[Override]
     public function create(mixed $data): array
     {
         return ['entity' => $data];
@@ -34,6 +36,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @return mixed
      */
+    #[Override]
     public function delete(mixed $id): array
     {
         $this->entity = [];
@@ -45,6 +48,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @inheritDoc
      */
+    #[Override]
     public function deleteList($data): Response
     {
         if (is_array($this->entity)) {
@@ -70,6 +74,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @return mixed
      */
+    #[Override]
     public function get(mixed $id): array
     {
         return ['entity' => $this->entity];
@@ -80,6 +85,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @return mixed
      */
+    #[Override]
     public function getList(): array
     {
         return ['entities' => $this->entities];
@@ -90,6 +96,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @inheritDoc
      */
+    #[Override]
     public function head($id = null): ?ResponseInterface
     {
         if ($id) {
@@ -102,6 +109,7 @@ class RestfulTestController extends AbstractRestfulController
     /**
      * Return list of allowed HTTP methods
      */
+    #[Override]
     public function options(): Response
     {
         $response = $this->getResponse();
@@ -116,6 +124,7 @@ class RestfulTestController extends AbstractRestfulController
      * @param  int $id
      * @param  array $data
      */
+    #[Override]
     public function patch($id, $data): array
     {
         $entity     = (array) $this->entity;
@@ -129,6 +138,7 @@ class RestfulTestController extends AbstractRestfulController
      *
      * @param  array|Traversable $items
      */
+    #[Override]
     public function replaceList($items): iterable
     {
         return $items;
@@ -140,6 +150,7 @@ class RestfulTestController extends AbstractRestfulController
      * @param  array|Traversable $items
      * @return array|Traversable
      */
+    #[Override]
     public function patchList($items): iterable
     {
         //This isn't great code to have in a test class, but I seems the simplest without BC breaks.
@@ -159,6 +170,7 @@ class RestfulTestController extends AbstractRestfulController
      * @param  mixed $data
      * @return mixed
      */
+    #[Override]
     public function update($id, $data): array
     {
         $data['id'] = $id;

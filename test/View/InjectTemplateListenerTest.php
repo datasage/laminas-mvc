@@ -12,6 +12,7 @@ use Laminas\Mvc\View\Http\InjectTemplateListener;
 use Laminas\Router\RouteMatch;
 use Laminas\View\Model\ViewModel;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function count;
@@ -24,6 +25,7 @@ class InjectTemplateListenerTest extends TestCase
     private MvcEvent $event;
     private RouteMatch $routeMatch;
 
+    #[Override]
     public function setUp(): void
     {
         $controllerMap  = [

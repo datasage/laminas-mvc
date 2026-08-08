@@ -3,6 +3,7 @@
 namespace Laminas\Mvc\ResponseSender;
 
 use Laminas\Http\Response;
+use Override;
 
 class HttpResponseSender extends AbstractResponseSender
 {
@@ -27,6 +28,7 @@ class HttpResponseSender extends AbstractResponseSender
      *
      * @return HttpResponseSender
      */
+    #[Override]
     public function __invoke(SendResponseEvent $event)
     {
         $response = $event->getResponse();

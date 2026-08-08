@@ -12,6 +12,7 @@ use Laminas\Psr7Bridge\Psr7ServerRequest;
 use Laminas\Router\RouteMatch;
 use Laminas\Stratigility\Delegate\CallableDelegateDecorator;
 use Laminas\Stratigility\MiddlewarePipe;
+use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -47,6 +48,7 @@ final class MiddlewareController extends AbstractController
      *
      * @throws RuntimeException
      */
+    #[Override]
     public function onDispatch(MvcEvent $e)
     {
         $routeMatch  = $e->getRouteMatch();

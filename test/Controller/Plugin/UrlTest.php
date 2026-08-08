@@ -18,6 +18,7 @@ use Laminas\Router\Http\Wildcard;
 use Laminas\Router\RouteMatch;
 use Laminas\Router\SimpleRouteStack;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class UrlTest extends TestCase
@@ -26,6 +27,7 @@ class UrlTest extends TestCase
     private SampleController $controller;
     private UrlPlugin $plugin;
 
+    #[Override]
     public function setUp(): void
     {
         $router = new SimpleRouteStack();

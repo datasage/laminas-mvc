@@ -11,6 +11,7 @@ use Laminas\Mvc\Controller\PluginManager;
 use Laminas\ServiceManager\Config;
 use Laminas\ServiceManager\ServiceManager;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class IntegrationTest extends TestCase
@@ -18,6 +19,7 @@ class IntegrationTest extends TestCase
     private SharedEventManager $sharedEvents;
     private ServiceManager $services;
 
+    #[Override]
     public function setUp(): void
     {
         $this->sharedEvents = new SharedEventManager();

@@ -10,6 +10,7 @@ use Laminas\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\ConfigInterface;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\Stdlib\DispatchableInterface;
+use Override;
 
 use function get_debug_type;
 use function method_exists;
@@ -56,6 +57,7 @@ class ControllerManager extends AbstractPluginManager
      *
      * {@inheritDoc}
      */
+    #[Override]
     public function validate($plugin)
     {
         if (! $plugin instanceof $this->instanceOf) {

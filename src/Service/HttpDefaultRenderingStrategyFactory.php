@@ -7,6 +7,7 @@ use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\DefaultRenderingStrategy;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\View;
+use Override;
 
 class HttpDefaultRenderingStrategyFactory implements FactoryInterface
 {
@@ -17,6 +18,7 @@ class HttpDefaultRenderingStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return DefaultRenderingStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $strategy = new DefaultRenderingStrategy($container->get(View::class));

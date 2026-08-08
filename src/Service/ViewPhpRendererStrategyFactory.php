@@ -7,6 +7,7 @@ use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Renderer\PhpRenderer;
 use Laminas\View\Strategy\PhpRendererStrategy;
+use Override;
 
 class ViewPhpRendererStrategyFactory implements FactoryInterface
 {
@@ -15,6 +16,7 @@ class ViewPhpRendererStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return PhpRendererStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new PhpRendererStrategy($container->get(PhpRenderer::class));

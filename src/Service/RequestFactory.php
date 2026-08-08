@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Http\PhpEnvironment\Request as HttpRequest;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class RequestFactory implements FactoryInterface
 {
@@ -16,6 +17,7 @@ class RequestFactory implements FactoryInterface
      * @param  null|array $options
      * @return HttpRequest
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new HttpRequest();

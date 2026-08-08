@@ -20,6 +20,7 @@ use Laminas\View\Resolver\TemplateMapResolver;
 use Laminas\View\Strategy\PhpRendererStrategy;
 use Laminas\View\View;
 use LaminasTest\Mvc\View\TestAsset\DumbStrategy;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function json_encode;
@@ -36,6 +37,7 @@ class DefaultRendereringStrategyTest extends TestCase
     protected PhpRenderer $renderer;
     protected DefaultRenderingStrategy $strategy;
 
+    #[Override]
     public function setUp(): void
     {
         $this->view     = new View();

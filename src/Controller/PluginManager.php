@@ -15,6 +15,7 @@ use Laminas\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Laminas\Stdlib\DispatchableInterface;
+use Override;
 
 use function get_debug_type;
 use function is_object;
@@ -111,6 +112,7 @@ class PluginManager extends AbstractPluginManager
      * @param  null|array $options Options to use when creating the instance.
      * @return DispatchableInterface
      */
+    #[Override]
     public function get($name, ?array $options = null)
     {
         $plugin = parent::get($name, $options);
@@ -169,6 +171,7 @@ class PluginManager extends AbstractPluginManager
      *
      * {@inheritDoc}
      */
+    #[Override]
     public function validate($plugin)
     {
         if (! $plugin instanceof $this->instanceOf) {

@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Strategy\JsonStrategy;
+use Override;
 
 class ViewJsonStrategyFactory implements FactoryInterface
 {
@@ -21,6 +22,7 @@ class ViewJsonStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return JsonStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $jsonRenderer = $container->get('ViewJsonRenderer');

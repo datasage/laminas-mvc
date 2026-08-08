@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver as ViewResolver;
+use Override;
 
 class ViewResolverFactory implements FactoryInterface
 {
@@ -19,6 +20,7 @@ class ViewResolverFactory implements FactoryInterface
      * @param  null|array $options
      * @return ViewResolver\AggregateResolver
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $resolver = new ViewResolver\AggregateResolver();

@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver\PrefixPathStackResolver;
+use Override;
 
 class ViewPrefixPathStackResolverFactory implements FactoryInterface
 {
@@ -19,6 +20,7 @@ class ViewPrefixPathStackResolverFactory implements FactoryInterface
      * @param  null|array $options
      * @return PrefixPathStackResolver
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $config   = $container->get('config');

@@ -5,6 +5,7 @@ namespace Laminas\Mvc;
 use Laminas\EventManager\AbstractListenerAggregate;
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\Router\RouteMatch;
+use Override;
 
 use function str_replace;
 use function str_starts_with;
@@ -20,6 +21,7 @@ class ModuleRouteListener extends AbstractListenerAggregate
      *
      * @param  int $priority
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'onRoute'], $priority);

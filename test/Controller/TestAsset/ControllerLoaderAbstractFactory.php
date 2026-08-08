@@ -8,6 +8,7 @@ namespace LaminasTest\Mvc\Controller\TestAsset;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use LaminasTest\Mvc\TestAsset\PathController;
+use Override;
 
 use function class_exists;
 
@@ -18,6 +19,7 @@ class ControllerLoaderAbstractFactory implements AbstractFactoryInterface
     ];
 
     /** @inheritDoc */
+    #[Override]
     public function canCreate(ContainerInterface $container, $requestedName): bool
     {
         if (! isset($this->classmap[$requestedName])) {
@@ -29,6 +31,7 @@ class ControllerLoaderAbstractFactory implements AbstractFactoryInterface
     }
 
     /** @inheritDoc */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $classname = $this->classmap[$requestedName];

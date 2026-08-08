@@ -12,6 +12,7 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\Router\RouteMatch;
 use Laminas\Stdlib\RequestInterface as Request;
 use Laminas\Stdlib\ResponseInterface as Response;
+use Override;
 
 use function array_key_exists;
 use function array_shift;
@@ -304,6 +305,7 @@ abstract class AbstractRestfulController extends AbstractController
      * @return mixed|Response
      * @throws Exception\InvalidArgumentException
      */
+    #[Override]
     public function dispatch(Request $request, ?Response $response = null)
     {
         if (! $request instanceof HttpRequest) {
@@ -320,6 +322,7 @@ abstract class AbstractRestfulController extends AbstractController
      * @return mixed
      * @throws Exception\DomainException If no route matches in event or invalid HTTP method.
      */
+    #[Override]
     public function onDispatch(MvcEvent $e)
     {
         $routeMatch = $e->getRouteMatch();

@@ -14,6 +14,7 @@ use Laminas\ServiceManager\Config;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceManager;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class ControllerManagerTest extends TestCase
@@ -23,6 +24,7 @@ class ControllerManagerTest extends TestCase
     private ServiceManager $services;
     private ControllerManager $controllers;
 
+    #[Override]
     public function setUp(): void
     {
         $this->sharedEvents = new SharedEventManager();
@@ -83,10 +85,6 @@ class ControllerManagerTest extends TestCase
         $this->assertSame($this->sharedEvents, $events->getSharedManager());
     }
 
-    /**
-     * @covers Laminas\ServiceManager\ServiceManager::has
-     * @covers Laminas\ServiceManager\AbstractPluginManager::get
-     */
     public function testDoNotUsePeeringServiceManagers()
     {
         $this->assertFalse($this->controllers->has('EventManager'));

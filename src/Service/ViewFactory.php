@@ -7,6 +7,7 @@ use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Strategy\PhpRendererStrategy;
 use Laminas\View\View;
+use Override;
 
 class ViewFactory implements FactoryInterface
 {
@@ -15,6 +16,7 @@ class ViewFactory implements FactoryInterface
      * @param  null|array $options
      * @return View
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $view   = new View();

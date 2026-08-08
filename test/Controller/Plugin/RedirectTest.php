@@ -14,6 +14,7 @@ use Laminas\Router\Http\Segment as SegmentRoute;
 use Laminas\Router\RouteMatch;
 use Laminas\Router\SimpleRouteStack;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class RedirectTest extends TestCase
@@ -25,6 +26,7 @@ class RedirectTest extends TestCase
     private SampleController $controller;
     private RedirectPlugin $plugin;
 
+    #[Override]
     public function setUp(): void
     {
         $this->response = new Response();

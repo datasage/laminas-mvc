@@ -22,6 +22,7 @@ use Laminas\Stdlib\RequestInterface as Request;
 use Laminas\Stdlib\ResponseInterface as Response;
 use Laminas\View\Model\ModelInterface;
 use Laminas\View\Model\ViewModel;
+use Override;
 
 use function array_merge;
 use function array_values;
@@ -85,6 +86,7 @@ abstract class AbstractController implements
      * @events dispatch.pre, dispatch.post
      * @return Response|mixed
      */
+    #[Override]
     public function dispatch(Request $request, ?Response $response = null)
     {
         $this->request = $request;
@@ -141,6 +143,7 @@ abstract class AbstractController implements
      *
      * @return AbstractController
      */
+    #[Override]
     public function setEventManager(EventManagerInterface $events)
     {
         $className = static::class;
@@ -175,6 +178,7 @@ abstract class AbstractController implements
      *
      * @return EventManagerInterface
      */
+    #[Override]
     public function getEventManager()
     {
         if (! $this->events) {
@@ -191,6 +195,7 @@ abstract class AbstractController implements
      *
      * @return void
      */
+    #[Override]
     public function setEvent(Event $e)
     {
         if (! $e instanceof MvcEvent) {
@@ -209,6 +214,7 @@ abstract class AbstractController implements
      *
      * @return MvcEvent
      */
+    #[Override]
     public function getEvent()
     {
         if (! $this->event) {

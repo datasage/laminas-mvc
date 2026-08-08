@@ -11,15 +11,16 @@ use Laminas\Mvc\HttpMethodListener;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Stdlib\Request;
 use Laminas\Stdlib\Response;
+use Override;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers Laminas\Mvc\HttpMethodListener
- */
+#[CoversClass(HttpMethodListener::class)]
 class HttpMethodListenerTest extends TestCase
 {
     protected HttpMethodListener $listener;
 
+    #[Override]
     public function setUp(): void
     {
         $this->listener = new HttpMethodListener();

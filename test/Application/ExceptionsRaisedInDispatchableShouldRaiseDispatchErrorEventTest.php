@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Application;
 
 use Laminas\Mvc\MvcEvent;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 class ExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEventTest extends TestCase
 {
     use BadControllerTrait;
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEvent()
     {
         $application = $this->prepareApplication();

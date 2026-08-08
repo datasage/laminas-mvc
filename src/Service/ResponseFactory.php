@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Http\PhpEnvironment\Response as HttpResponse;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class ResponseFactory implements FactoryInterface
 {
@@ -16,6 +17,7 @@ class ResponseFactory implements FactoryInterface
      * @param  null|array $options
      * @return HttpResponse
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new HttpResponse();

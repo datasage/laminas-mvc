@@ -9,6 +9,7 @@ use Laminas\Mvc\Exception\DomainException;
 use Laminas\Mvc\MvcEvent;
 use Laminas\View\Model\ViewModel;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class LayoutTest extends TestCase
@@ -17,6 +18,7 @@ class LayoutTest extends TestCase
     private SampleController $controller;
     private LayoutPlugin $plugin;
 
+    #[Override]
     public function setUp(): void
     {
         $this->event      = $event = new MvcEvent();

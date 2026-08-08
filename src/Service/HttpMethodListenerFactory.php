@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\HttpMethodListener;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 use function array_key_exists;
 use function is_array;
@@ -17,6 +18,7 @@ class HttpMethodListenerFactory implements FactoryInterface
      *
      * @return HttpMethodListener
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $config = $container->get('config');

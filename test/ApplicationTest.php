@@ -30,8 +30,12 @@ use LaminasTest\Mvc\Controller\TestAsset\BadController;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use LaminasTest\Mvc\TestAsset\MockSendResponseListener;
 use LaminasTest\Mvc\TestAsset\MockViewManager;
+use LaminasTest\Mvc\TestAsset\MvcEventListenerInterface;
 use LaminasTest\Mvc\TestAsset\PathController;
 use LaminasTest\Mvc\TestAsset\StubBootstrapListener;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -51,6 +55,7 @@ class ApplicationTest extends TestCase
     protected ServiceManager $serviceManager;
     protected Application $application;
 
+    #[Override]
     public function setUp(): void
     {
         $serviceListener = new ServiceListenerFactory();
@@ -179,8 +184,8 @@ class ApplicationTest extends TestCase
      * @param string $event
      * @param string $method
      * @param bool   $isCustom
-     * @dataProvider bootstrapRegistersListenersProvider
      */
+    #[DataProvider('bootstrapRegistersListenersProvider')]
     public function testBootstrapRegistersListeners($listenerServiceName, $event, $method, $isCustom = false): void
     {
         $listenerService = $this->serviceManager->get($listenerServiceName);
@@ -349,9 +354,7 @@ class ApplicationTest extends TestCase
         );
     }
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testRoutingFailureShouldTriggerDispatchError(): void
     {
         $application = $this->setupBadController();
@@ -372,9 +375,7 @@ class ApplicationTest extends TestCase
         $this->assertStringContainsString(Application::ERROR_ROUTER_NO_MATCH, $response->getContent());
     }
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testLocatorExceptionShouldTriggerDispatchError(): void
     {
         $application      = $this->setupPathController(false);
@@ -389,8 +390,8 @@ class ApplicationTest extends TestCase
 
     /**
      * @requires PHP 7.0
-     * @group error-handling
      */
+    #[Group('error-handling')]
     public function testPhp7ErrorRaisedInDispatchableShouldRaiseDispatchErrorEvent(): void
     {
         $this->setupBadController(true, 'test-php7-error');
@@ -406,9 +407,7 @@ class ApplicationTest extends TestCase
         $this->assertStringContainsString('Raised an error', $response->getContent());
     }
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testFailureForRouteToReturnRouteMatchShouldPopulateEventError(): void
     {
         $application = $this->setupBadController();
@@ -429,9 +428,7 @@ class ApplicationTest extends TestCase
         $this->assertEquals(Application::ERROR_ROUTER_NO_MATCH, $event->getError());
     }
 
-    /**
-     * @group Laminas-171
-     */
+    #[Group('Laminas-171')]
     public function testFinishShouldRunEvenIfRouteEventReturnsResponse(): void
     {
         $this->application->bootstrap();
@@ -449,9 +446,7 @@ class ApplicationTest extends TestCase
         $this->assertEquals('bar', $token->foo);
     }
 
-    /**
-     * @group Laminas-171
-     */
+    #[Group('Laminas-171')]
     public function testFinishShouldRunEvenIfDispatchEventReturnsResponse(): void
     {
         $this->application->bootstrap();
@@ -561,27 +556,21 @@ class ApplicationTest extends TestCase
         $this->application->bootstrap();
 
         $response     = $this->createMock(ResponseInterface::class);
-        $finishMock   = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
-        $routeMock    = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
-        $dispatchMock = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
+        $finishMock   = $this->createMock(MvcEventListenerInterface::class);
+        $routeMock    = $this->createMock(MvcEventListenerInterface::class);
+        $dispatchMock = $this->createMock(MvcEventListenerInterface::class);
 
-        $routeMock->expects($this->once())->method('__invoke')->will(
-            $this->returnCallback(static function (MvcEvent $event): void {
+        $routeMock->expects($this->once())->method('__invoke')->willReturnCallback(
+            static function (MvcEvent $event): void {
                 $event->stopPropagation(true);
                 $event->setRouteMatch(new RouteMatch([]));
-            })
+            }
         );
-        $dispatchMock->expects($this->once())->method('__invoke')->will($this->returnValue($response));
-        $finishMock->expects($this->once())->method('__invoke')->will(
-            $this->returnCallback(static function (MvcEvent $event): void {
+        $dispatchMock->expects($this->once())->method('__invoke')->willReturn($response);
+        $finishMock->expects($this->once())->method('__invoke')->willReturnCallback(
+            static function (MvcEvent $event): void {
                 $event->stopPropagation(true);
-            })
+            }
         );
 
         $this->application->getEventManager()->attach(MvcEvent::EVENT_ROUTE, $routeMock, 100);
@@ -597,39 +586,31 @@ class ApplicationTest extends TestCase
         $this->application->bootstrap();
 
         $response     = $this->createMock(ResponseInterface::class);
-        $errorMock    = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
-        $finishMock   = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
-        $routeMock    = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
-        $dispatchMock = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
+        $errorMock    = $this->createMock(MvcEventListenerInterface::class);
+        $finishMock   = $this->createMock(MvcEventListenerInterface::class);
+        $routeMock    = $this->createMock(MvcEventListenerInterface::class);
+        $dispatchMock = $this->createMock(MvcEventListenerInterface::class);
 
-        $errorMock->expects($this->once())->method('__invoke')->will(
-            $this->returnCallback(static function (MvcEvent $event): void {
+        $errorMock->expects($this->once())->method('__invoke')->willReturnCallback(
+            static function (MvcEvent $event): void {
                 $event->stopPropagation(true);
                 $event->setRouteMatch(new RouteMatch([]));
                 $event->setError('');
-            })
+            }
         );
-        $routeMock->expects($this->once())->method('__invoke')->will(
-            $this->returnCallback(static function (MvcEvent $event) {
+        $routeMock->expects($this->once())->method('__invoke')->willReturnCallback(
+            static function (MvcEvent $event) {
                 $event->stopPropagation(true);
                 $event->setName(MvcEvent::EVENT_DISPATCH_ERROR);
                 $event->setError(Application::ERROR_ROUTER_NO_MATCH);
                 return $event->getApplication()->getEventManager()->triggerEvent($event)->last();
-            })
+            }
         );
-        $dispatchMock->expects($this->once())->method('__invoke')->will($this->returnValue($response));
-        $finishMock->expects($this->once())->method('__invoke')->will(
-            $this->returnCallback(static function (MvcEvent $event): void {
+        $dispatchMock->expects($this->once())->method('__invoke')->willReturn($response);
+        $finishMock->expects($this->once())->method('__invoke')->willReturnCallback(
+            static function (MvcEvent $event): void {
                 $event->stopPropagation(true);
-            })
+            }
         );
 
         $this->application->getEventManager()->attach(MvcEvent::EVENT_DISPATCH_ERROR, $errorMock, 100);
@@ -649,9 +630,7 @@ class ApplicationTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider eventPropagation
-     */
+    #[DataProvider('eventPropagation')]
     public function testEventPropagationStatusIsClearedBetweenEventsDuringRun(array $events): void
     {
         $event = new MvcEvent();

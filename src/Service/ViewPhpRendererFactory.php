@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Renderer\PhpRenderer;
+use Override;
 
 class ViewPhpRendererFactory implements FactoryInterface
 {
@@ -14,6 +15,7 @@ class ViewPhpRendererFactory implements FactoryInterface
      * @param  null|array $options
      * @return PhpRenderer
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $renderer = new PhpRenderer();

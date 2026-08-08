@@ -11,6 +11,7 @@ use Laminas\Mvc\Controller\Plugin\Params;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Router\RouteMatch;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function uniqid;
@@ -23,6 +24,7 @@ class ParamsTest extends TestCase
     private SampleController $controller;
     private Params $plugin;
 
+    #[Override]
     public function setUp(): void
     {
         $this->request = new Request();

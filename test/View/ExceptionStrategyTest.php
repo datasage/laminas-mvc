@@ -12,6 +12,7 @@ use Laminas\Mvc\Application;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\View\Http\ExceptionStrategy;
 use Laminas\View\Model\ViewModel;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function count;
@@ -22,6 +23,7 @@ class ExceptionStrategyTest extends TestCase
 
     private ExceptionStrategy $strategy;
 
+    #[Override]
     public function setUp(): void
     {
         $this->strategy = new ExceptionStrategy();

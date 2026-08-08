@@ -21,6 +21,7 @@ use Laminas\Stdlib\DispatchableInterface;
 use Laminas\View\Model\ModelInterface;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use LaminasTest\Mvc\Controller\TestAsset\SampleInterface;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function method_exists;
@@ -36,6 +37,7 @@ class ActionControllerTest extends TestCase
     private SharedEventManager $sharedEvents;
     private EventManager $events;
 
+    #[Override]
     public function setUp(): void
     {
         $this->controller = new SampleController();

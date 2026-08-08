@@ -6,6 +6,7 @@ namespace LaminasTest\Mvc\TestAsset;
 
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Override;
 
 use function call_user_func_array;
 
@@ -17,6 +18,7 @@ class Locator implements ServiceLocatorInterface
     protected array $services = [];
 
     /** @inheritDoc */
+    #[Override]
     public function get(string $id)
     {
         if (! isset($this->services[$id])) {
@@ -27,12 +29,14 @@ class Locator implements ServiceLocatorInterface
     }
 
     /** @inheritDoc */
+    #[Override]
     public function has($id)
     {
         return isset($this->services[$id]);
     }
 
     /** @inheritDoc */
+    #[Override]
     public function build($name, ?array $options = null)
     {
         if (! isset($this->services[$name])) {

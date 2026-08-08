@@ -6,11 +6,10 @@ namespace LaminasTest\Mvc\Service;
 
 use Laminas\Mvc\Service\HttpMethodListenerFactory;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers Laminas\Mvc\Service\HttpMethodListenerFactory
- */
+#[CoversClass(HttpMethodListenerFactory::class)]
 class HttpMethodListenerFactoryTest extends TestCase
 {
     public function testCreateWithDefaults()
