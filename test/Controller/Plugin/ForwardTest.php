@@ -44,8 +44,8 @@ class ForwardTest extends TestCase
     public function setUp(): void
     {
         $eventManager    = $this->createEventManager(new SharedEventManager());
-        $mockApplication = $this->createMock(ApplicationInterface::class);
-        $mockApplication->expects($this->any())->method('getEventManager')->willReturn($eventManager);
+        $mockApplication = $this->createStub(ApplicationInterface::class);
+        $mockApplication->method('getEventManager')->willReturn($eventManager);
 
         $event = new MvcEvent();
         $event->setApplication($mockApplication);
@@ -195,14 +195,14 @@ class ForwardTest extends TestCase
         $events       = $services->get('EventManager');
         $sharedEvents = $this->createMock(SharedEventManagerInterface::class);
         // @codingStandardsIgnoreStart
-        $sharedEvents->expects($this->any())->method('getListeners')->willReturn([
+        $sharedEvents->method('getListeners')->willReturn([
             static function ($e) : void {
             }
         ]);
         // @codingStandardsIgnoreEnd
         $events      = $this->createEventManager($sharedEvents);
-        $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->willReturn($events);
+        $application = $this->createStub(ApplicationInterface::class);
+        $application->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 
@@ -228,13 +228,13 @@ class ForwardTest extends TestCase
             ->expects($this->once())
             ->method('attach')
             ->with(DispatchableInterface::class, MvcEvent::EVENT_DISPATCH, $myCallback, -50);
-        $sharedEvents->expects($this->any())
+        $sharedEvents
             ->method('getListeners')
             ->willReturn([-50 => [$myCallback]]);
         $events = $this->createEventManager($sharedEvents);
 
-        $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->willReturn($events);
+        $application = $this->createStub(ApplicationInterface::class);
+        $application->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 
@@ -263,13 +263,13 @@ class ForwardTest extends TestCase
             ->expects($this->once())
             ->method('attach')
             ->with(DispatchableInterface::class, MvcEvent::EVENT_DISPATCH, $myCallback, -50);
-        $sharedEvents->expects($this->any())
+        $sharedEvents
             ->method('getListeners')
             ->willReturn([-50 => [$myCallback]]);
         $events = $this->createEventManager($sharedEvents);
 
-        $application = $this->createMock(ApplicationInterface::class);
-        $application->expects($this->any())->method('getEventManager')->willReturn($events);
+        $application = $this->createStub(ApplicationInterface::class);
+        $application->method('getEventManager')->willReturn($events);
         $event = $this->controller->getEvent();
         $event->setApplication($application);
 

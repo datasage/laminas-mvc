@@ -55,7 +55,7 @@ class InjectTemplateListenerFactoryTest extends TestCase
      */
     private function buildInjectTemplateListenerWithConfig(mixed $config)
     {
-        $serviceLocator = $this->createMock(ServiceLocatorInterface::class);
+        $serviceLocator = $this->createStub(ServiceLocatorInterface::class);
         $serviceLocator->method('get')->willReturn($config);
 
         $factory  = new InjectTemplateListenerFactory();

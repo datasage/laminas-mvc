@@ -15,7 +15,7 @@ class RequestFactoryTest extends TestCase
     public function testFactoryCreatesHttpRequest()
     {
         $factory   = new RequestFactory();
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $request   = $factory($container, 'Request');
         $this->assertInstanceOf(HttpRequest::class, $request);
     }

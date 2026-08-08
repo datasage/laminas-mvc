@@ -15,9 +15,9 @@ class ViewFeedStrategyFactoryTest extends TestCase
 {
     private function createContainer(): ContainerInterface
     {
-        $renderer  = $this->createMock(FeedRenderer::class);
+        $renderer  = $this->createStub(FeedRenderer::class);
         $container = $this->createMock(ContainerInterface::class);
-        $container->method('get')->with('ViewFeedRenderer')->willReturn($renderer);
+        $container->expects($this->atLeastOnce())->method('get')->with('ViewFeedRenderer')->willReturn($renderer);
         return $container;
     }
 

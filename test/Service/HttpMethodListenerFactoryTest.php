@@ -31,7 +31,7 @@ class HttpMethodListenerFactoryTest extends TestCase
         ];
 
         $serviceLocator = $this->createMock(ServiceLocatorInterface::class);
-        $serviceLocator->method('get')->with('config')->willReturn($config);
+        $serviceLocator->expects($this->atLeastOnce())->method('get')->with('config')->willReturn($config);
 
         $factory  = new HttpMethodListenerFactory();
         $listener = $factory($serviceLocator, 'HttpMethodListener');

@@ -29,11 +29,11 @@ class DispatchListenerTest extends TestCase
     {
         $response   = new Response();
         $routeMatch = $this->createMock(RouteMatch::class);
-        $routeMatch->method('getParam')->with('controller', 'not-found')->willReturn($controllerMatched);
+        $routeMatch->method('getParam')->willReturn($controllerMatched);
 
         $eventManager = new EventManager();
 
-        $application = $this->createMock(Application::class);
+        $application = $this->createStub(Application::class);
         $application->method('getEventManager')->willReturn($eventManager);
         $application->method('getResponse')->willReturn($response);
 
@@ -138,7 +138,7 @@ class DispatchListenerTest extends TestCase
 
     public function testWillNotDispatchWhenAnMvcEventResultIsAlreadySetWithModelInterface(): void
     {
-        $alreadySetResult = $this->createMock(ModelInterface::class);
+        $alreadySetResult = $this->createStub(ModelInterface::class);
         $event            = $this->createMvcEvent('path');
 
         $event->setResult($alreadySetResult);
@@ -160,7 +160,7 @@ class DispatchListenerTest extends TestCase
 
     public function testWillNotDispatchWhenAnMvcEventResultIsAlreadySetWithResponseInterface(): void
     {
-        $alreadySetResult = $this->createMock(ResponseInterface::class);
+        $alreadySetResult = $this->createStub(ResponseInterface::class);
         $event            = $this->createMvcEvent('path');
 
         $event->setResult($alreadySetResult);
@@ -182,7 +182,7 @@ class DispatchListenerTest extends TestCase
 
     public function testWillNotDispatchWhenAnMvcEventResultIsAlreadySetWithResponse(): void
     {
-        $alreadySetResult = $this->createMock(Response::class);
+        $alreadySetResult = $this->createStub(Response::class);
         $event            = $this->createMvcEvent('path');
 
         $event->setResult($alreadySetResult);

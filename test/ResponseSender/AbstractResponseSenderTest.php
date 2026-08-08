@@ -43,7 +43,7 @@ class AbstractResponseSenderTest extends TestCase
                 ->method('getResponse')
                 ->willReturn($response);
 
-        $responseSender = $this->createMock(AbstractResponseSender::class);
+        $responseSender = $this->createStub(AbstractResponseSender::class);
         $responseSender->sendHeaders($mockSendResponseEvent);
 
         $sentHeaders = xdebug_get_headers();
@@ -84,9 +84,9 @@ class AbstractResponseSenderTest extends TestCase
         $mockSendResponseEvent = $this->getMockBuilder(SendResponseEvent::class)
             ->onlyMethods(['getResponse'])
             ->getMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
+        $mockSendResponseEvent->method('getResponse')->willReturn($mockResponse);
 
-        $responseSender = $this->createMock(AbstractResponseSender::class);
+        $responseSender = $this->createStub(AbstractResponseSender::class);
         $responseSender->sendHeaders($mockSendResponseEvent);
 
         $sentHeaders = xdebug_get_headers();
