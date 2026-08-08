@@ -14,6 +14,7 @@ use Laminas\ModuleManager\Listener\ListenerOptions;
 use Laminas\ModuleManager\ModuleEvent;
 use Laminas\ModuleManager\ModuleManager;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class ModuleManagerFactory implements FactoryInterface
 {
@@ -32,6 +33,7 @@ class ModuleManagerFactory implements FactoryInterface
      * @param  null|array $options
      * @return ModuleManager
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $configuration    = $container->get('ApplicationConfig');

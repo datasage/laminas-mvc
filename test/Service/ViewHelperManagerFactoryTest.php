@@ -15,6 +15,9 @@ use Laminas\View\Helper\BasePath;
 use Laminas\View\Helper\Doctype;
 use Laminas\View\Helper\Url;
 use Laminas\View\HelperPluginManager;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 use function array_unshift;
@@ -26,6 +29,7 @@ class ViewHelperManagerFactoryTest extends TestCase
     private ServiceManager $services;
     private ViewHelperManagerFactory $factory;
 
+    #[Override]
     public function setUp(): void
     {
         $this->services = new ServiceManager();
@@ -45,10 +49,10 @@ class ViewHelperManagerFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider emptyConfiguration
      * @param  array $config
      * @return void
      */
+    #[DataProvider('emptyConfiguration')]
     public function testDoctypeFactoryDoesNotRaiseErrorOnMissingConfiguration($config)
     {
         $this->services->setService('config', $config);
@@ -68,10 +72,8 @@ class ViewHelperManagerFactoryTest extends TestCase
         ];
     }
 
-    /**
-     * @group 71
-     * @dataProvider urlHelperNames
-     */
+    #[Group('71')]
+    #[DataProvider('urlHelperNames')]
     public function testUrlHelperFactoryCanBeInvokedViaShortNameOrFullClassName(string $name): void
     {
         $this->markTestSkipped(sprintf(
@@ -138,10 +140,8 @@ class ViewHelperManagerFactoryTest extends TestCase
         }
     }
 
-    /**
-     * @group 71
-     * @dataProvider basePathConfiguration
-     */
+    #[Group('71')]
+    #[DataProvider('basePathConfiguration')]
     public function testBasePathHelperFactoryCanBeInvokedViaShortNameOrFullClassName(
         string $name,
         array $services,
@@ -172,10 +172,8 @@ class ViewHelperManagerFactoryTest extends TestCase
         ];
     }
 
-    /**
-     * @group 71
-     * @dataProvider doctypeHelperNames
-     */
+    #[Group('71')]
+    #[DataProvider('doctypeHelperNames')]
     public function testDoctypeHelperFactoryCanBeInvokedViaShortNameOrFullClassName(string $name): void
     {
         $this->services->setService('config', [

@@ -8,6 +8,7 @@ use Laminas\Http\Headers;
 use Laminas\Http\Response;
 use Laminas\Mvc\ResponseSender\AbstractResponseSender;
 use Laminas\Mvc\ResponseSender\SendResponseEvent;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PHPUnit\Framework\TestCase;
 
 use function array_diff;
@@ -19,9 +20,7 @@ use function version_compare;
 
 class AbstractResponseSenderTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     */
+    #[RunInSeparateProcess]
     public function testSendHeadersTwoTimesSendsOnlyOnce()
     {
         if (! function_exists('xdebug_get_headers')) {
@@ -42,9 +41,9 @@ class AbstractResponseSenderTest extends TestCase
             $this->any()
         )
                 ->method('getResponse')
-                ->will($this->returnValue($response));
+                ->willReturn($response);
 
-        $responseSender = $this->getMockForAbstractClass(AbstractResponseSender::class);
+        $responseSender = $this->createMock(AbstractResponseSender::class);
         $responseSender->sendHeaders($mockSendResponseEvent);
 
         $sentHeaders = xdebug_get_headers();
@@ -65,9 +64,7 @@ class AbstractResponseSenderTest extends TestCase
         $this->assertEquals($expected, xdebug_get_headers());
     }
 
-    /**
-     * @runInSeparateProcess
-     */
+    #[RunInSeparateProcess]
     public function testSendHeadersSendsStatusLast()
     {
         if (! function_exists('xdebug_get_headers')) {
@@ -78,18 +75,18 @@ class AbstractResponseSenderTest extends TestCase
         $mockResponse
             ->expects($this->once())
             ->method('getHeaders')
-            ->will($this->returnValue(Headers::fromString('Location: example.com')));
+            ->willReturn(Headers::fromString('Location: example.com'));
         $mockResponse
             ->expects($this->once())
             ->method('renderStatusLine')
-            ->will($this->returnValue('X-Test: HTTP/1.1 202 Accepted'));
+            ->willReturn('X-Test: HTTP/1.1 202 Accepted');
 
         $mockSendResponseEvent = $this->getMockBuilder(SendResponseEvent::class)
             ->onlyMethods(['getResponse'])
             ->getMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->will($this->returnValue($mockResponse));
+        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
 
-        $responseSender = $this->getMockForAbstractClass(AbstractResponseSender::class);
+        $responseSender = $this->createMock(AbstractResponseSender::class);
         $responseSender->sendHeaders($mockSendResponseEvent);
 
         $sentHeaders = xdebug_get_headers();

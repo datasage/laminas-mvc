@@ -9,6 +9,8 @@ use Laminas\EventManager\Test\EventListenerIntrospectionTrait;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\View\Http\CreateViewModelListener;
 use Laminas\View\Model\ViewModel;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -22,6 +24,7 @@ class CreateViewModelListenerTest extends TestCase
     private CreateViewModelListener $listener;
     private MvcEvent $event;
 
+    #[Override]
     public function setUp(): void
     {
         $this->listener = new CreateViewModelListener();
@@ -57,9 +60,7 @@ class CreateViewModelListenerTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider nonAssocArrayResults
-     */
+    #[DataProvider('nonAssocArrayResults')]
     public function testDoesNotCastNonAssocArrayEventResults(mixed $test): void
     {
         $this->event->setResult($test);

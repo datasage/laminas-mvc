@@ -17,6 +17,7 @@ use Laminas\Stdlib\ResponseInterface;
 use Laminas\View\Model\ModelInterface;
 use LaminasTest\Mvc\Controller\TestAsset\ControllerLoaderAbstractFactory;
 use LaminasTest\Mvc\Controller\TestAsset\UnlocatableControllerLoaderAbstractFactory;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
@@ -96,9 +97,7 @@ class DispatchListenerTest extends TestCase
         $this->assertSame('error-controller-not-found', $log['error']);
     }
 
-    /**
-     * @dataProvider alreadySetMvcEventResultProvider
-     */
+    #[DataProvider('alreadySetMvcEventResultProvider')]
     public function testWillNotDispatchWhenAnMvcEventResultIsAlreadySet(mixed $alreadySetResult): void
     {
         $event = $this->createMvcEvent('path');

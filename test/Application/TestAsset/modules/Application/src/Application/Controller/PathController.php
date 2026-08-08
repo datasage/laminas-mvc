@@ -8,10 +8,12 @@ use Laminas\Http\Response as HttpResponse;
 use Laminas\Stdlib\DispatchableInterface;
 use Laminas\Stdlib\RequestInterface as Request;
 use Laminas\Stdlib\ResponseInterface as Response;
+use Override;
 
 class PathController implements DispatchableInterface
 {
     /** @inheritDoc */
+    #[Override]
     public function dispatch(Request $request, ?Response $response = null)
     {
         if (! $response) {

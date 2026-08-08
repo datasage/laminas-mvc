@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Controller\TestAsset;
 
 use Laminas\Mvc\Controller\AbstractActionController;
+use Override;
 
 class ForwardController extends AbstractActionController
 {
@@ -19,6 +20,7 @@ class ForwardController extends AbstractActionController
         return $e->getRouteMatch()->getParams();
     }
 
+    #[Override]
     public function notFoundAction(): array
     {
         return [

@@ -7,6 +7,7 @@ namespace LaminasTest\Mvc\Service\TestAsset;
 use Laminas\Stdlib\DispatchableInterface;
 use Laminas\Stdlib\RequestInterface;
 use Laminas\Stdlib\ResponseInterface;
+use Override;
 use stdClass;
 
 class ControllerWithDependencies implements DispatchableInterface
@@ -19,6 +20,7 @@ class ControllerWithDependencies implements DispatchableInterface
         $this->injectedValue = $injected;
     }
 
+    #[Override]
     public function dispatch(RequestInterface $request, ?ResponseInterface $response = null)
     {
     }

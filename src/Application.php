@@ -8,6 +8,7 @@ use Laminas\Mvc\Service\ServiceManagerConfig;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Stdlib\RequestInterface;
 use Laminas\Stdlib\ResponseInterface;
+use Override;
 
 use function array_merge;
 use function array_unique;
@@ -149,6 +150,7 @@ class Application implements
      *
      * @return ServiceManager
      */
+    #[Override]
     public function getServiceManager()
     {
         return $this->serviceManager;
@@ -159,6 +161,7 @@ class Application implements
      *
      * @return RequestInterface
      */
+    #[Override]
     public function getRequest()
     {
         return $this->request;
@@ -169,6 +172,7 @@ class Application implements
      *
      * @return ResponseInterface
      */
+    #[Override]
     public function getResponse()
     {
         return $this->response;
@@ -189,6 +193,7 @@ class Application implements
      *
      * @return Application
      */
+    #[Override]
     public function setEventManager(EventManagerInterface $eventManager)
     {
         $eventManager->setIdentifiers([
@@ -206,6 +211,7 @@ class Application implements
      *
      * @return EventManagerInterface
      */
+    #[Override]
     public function getEventManager()
     {
         return $this->events;
@@ -269,6 +275,7 @@ class Application implements
      *           that can be returned immediately.
      * @return self
      */
+    #[Override]
     public function run()
     {
         $events = $this->events;

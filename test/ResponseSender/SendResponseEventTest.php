@@ -12,8 +12,8 @@ class SendResponseEventTest extends TestCase
 {
     public function testContentSentAndHeadersSent()
     {
-        $mockResponse  = $this->getMockForAbstractClass(ResponseInterface::class);
-        $mockResponse2 = $this->getMockForAbstractClass(ResponseInterface::class);
+        $mockResponse  = $this->createMock(ResponseInterface::class);
+        $mockResponse2 = $this->createMock(ResponseInterface::class);
         $event         = new SendResponseEvent();
         $event->setResponse($mockResponse);
         $this->assertFalse($event->headersSent());

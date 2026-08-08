@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Strategy\FeedStrategy;
+use Override;
 
 class ViewFeedStrategyFactory implements FactoryInterface
 {
@@ -21,6 +22,7 @@ class ViewFeedStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return FeedStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new FeedStrategy($container->get('ViewFeedRenderer'));

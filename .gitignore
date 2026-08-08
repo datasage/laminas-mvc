@@ -1,8 +1,9 @@
 /clover.xml
 /coveralls-upload.json
-/docs/html/
-/laminas-mkdoc-theme.tgz
-/laminas-mkdoc-theme/
+/psalm.xml
+/phpcs.xml
+/.psalm-cache/
 /phpunit.xml
 /vendor/
+/.phpunit.cache/
 /.phpunit.result.cache

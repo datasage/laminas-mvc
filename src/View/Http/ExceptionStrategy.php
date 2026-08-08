@@ -9,6 +9,7 @@ use Laminas\Mvc\Application;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Stdlib\ResponseInterface as Response;
 use Laminas\View\Model\ViewModel;
+use Override;
 
 class ExceptionStrategy extends AbstractListenerAggregate
 {
@@ -29,6 +30,7 @@ class ExceptionStrategy extends AbstractListenerAggregate
     /**
      * {@inheritDoc}
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH_ERROR, [$this, 'prepareExceptionViewModel']);

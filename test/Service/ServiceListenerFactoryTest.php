@@ -7,6 +7,7 @@ namespace LaminasTest\Mvc\Service;
 use Laminas\Mvc\Service\ServiceListenerFactory;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\ServiceManager;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class ServiceListenerFactoryTest extends TestCase
@@ -14,6 +15,7 @@ class ServiceListenerFactoryTest extends TestCase
     private ServiceManager $sm;
     private ServiceListenerFactory $factory;
 
+    #[Override]
     public function setUp(): void
     {
         $this->sm = $this->getMockBuilder(ServiceManager::class)
@@ -27,7 +29,7 @@ class ServiceListenerFactoryTest extends TestCase
     {
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue(['service_listener_options' => 'string']));
+                 ->willReturn(['service_listener_options' => 'string']);
 
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage("The value of service_listener_options must be an array, string given.");
@@ -44,7 +46,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage(
@@ -63,7 +65,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectExceptionMessage(
             'Invalid service listener options detected, service_manager must be a string, integer given.',
@@ -82,7 +84,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage(
@@ -101,7 +103,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage(
@@ -120,7 +122,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectExceptionMessage("Invalid service listener options detected, 0 array must contain interface key.");
         $this->expectException(ServiceNotCreatedException::class);
@@ -137,7 +139,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectExceptionMessage(
             'Invalid service listener options detected, interface must be a string, integer given.',
@@ -156,7 +158,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectException(ServiceNotCreatedException::class);
         $this->expectExceptionMessage("Invalid service listener options detected, 0 array must contain method key.");
@@ -173,7 +175,7 @@ class ServiceListenerFactoryTest extends TestCase
 
         $this->sm->expects($this->once())
                  ->method('get')
-                 ->will($this->returnValue($config));
+                 ->willReturn($config);
 
         $this->expectExceptionMessage(
             'Invalid service listener options detected, method must be a string, integer given.',

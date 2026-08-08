@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\ExceptionStrategy;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class HttpExceptionStrategyFactory implements FactoryInterface
 {
@@ -16,6 +17,7 @@ class HttpExceptionStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return ExceptionStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $strategy = new ExceptionStrategy();

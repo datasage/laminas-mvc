@@ -34,11 +34,11 @@ class SendResponseListenerTest extends TestCase
             },
             10000
         );
-        $mockResponse = $this->getMockForAbstractClass(ResponseInterface::class);
+        $mockResponse = $this->createMock(ResponseInterface::class);
         $mockMvcEvent = $this->getMockBuilder(MvcEvent::class)
             ->onlyMethods(['getResponse'])
             ->getMock();
-        $mockMvcEvent->expects($this->any())->method('getResponse')->will($this->returnValue($mockResponse));
+        $mockMvcEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
         $listener->sendResponse($mockMvcEvent);
         $expected = [
             'target'   => $listener,

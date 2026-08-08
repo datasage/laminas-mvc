@@ -3,6 +3,7 @@
 namespace Laminas\Mvc\ResponseSender;
 
 use Laminas\Http\Response\Stream;
+use Override;
 
 use function fpassthru;
 
@@ -29,6 +30,7 @@ class SimpleStreamResponseSender extends AbstractResponseSender
      *
      * @return SimpleStreamResponseSender
      */
+    #[Override]
     public function __invoke(SendResponseEvent $event)
     {
         $response = $event->getResponse();

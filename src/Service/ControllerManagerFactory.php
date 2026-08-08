@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\Controller\ControllerManager;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class ControllerManagerFactory implements FactoryInterface
 {
@@ -23,6 +24,7 @@ class ControllerManagerFactory implements FactoryInterface
      * @param  null|array $options
      * @return ControllerManager
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         if ($options) {

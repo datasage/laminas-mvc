@@ -18,6 +18,7 @@ use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Laminas\Stdlib\DispatchableInterface;
 use Laminas\Validator\ValidatorPluginManager;
+use Override;
 use ReflectionClass;
 use ReflectionNamedType;
 use ReflectionParameter;
@@ -104,6 +105,7 @@ class LazyControllerAbstractFactory implements AbstractFactoryInterface
      *
      * @return DispatchableInterface
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $reflectionClass = new ReflectionClass($requestedName);
@@ -129,6 +131,7 @@ class LazyControllerAbstractFactory implements AbstractFactoryInterface
     /**
      * {@inheritDoc}
      */
+    #[Override]
     public function canCreate(ContainerInterface $container, $requestedName)
     {
         if (! class_exists($requestedName)) {

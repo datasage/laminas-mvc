@@ -14,6 +14,7 @@ use Laminas\ModuleManager\ModuleManager;
 use Laminas\ServiceManager\Config;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Stdlib\ArrayUtils;
+use Override;
 
 class ServiceManagerConfig extends Config
 {
@@ -104,6 +105,7 @@ class ServiceManagerConfig extends Config
      *
      * @return ServiceManager
      */
+    #[Override]
     public function configureServiceManager(ServiceManager $services)
     {
         $this->config['services'][ServiceManager::class] = $services;
@@ -122,6 +124,7 @@ class ServiceManagerConfig extends Config
      *
      * @return array
      */
+    #[Override]
     public function toArray()
     {
         return $this->config;

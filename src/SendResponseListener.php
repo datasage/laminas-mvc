@@ -11,6 +11,7 @@ use Laminas\Mvc\ResponseSender\PhpEnvironmentResponseSender;
 use Laminas\Mvc\ResponseSender\SendResponseEvent;
 use Laminas\Mvc\ResponseSender\SimpleStreamResponseSender;
 use Laminas\Stdlib\ResponseInterface as Response;
+use Override;
 
 class SendResponseListener extends AbstractListenerAggregate implements
     EventManagerAwareInterface
@@ -26,6 +27,7 @@ class SendResponseListener extends AbstractListenerAggregate implements
      *
      * @return SendResponseListener
      */
+    #[Override]
     public function setEventManager(EventManagerInterface $eventManager)
     {
         $eventManager->setIdentifiers([
@@ -44,6 +46,7 @@ class SendResponseListener extends AbstractListenerAggregate implements
      *
      * @return EventManagerInterface
      */
+    #[Override]
     public function getEventManager()
     {
         if (! $this->eventManager instanceof EventManagerInterface) {
@@ -58,6 +61,7 @@ class SendResponseListener extends AbstractListenerAggregate implements
      * @param  int $priority
      * @return void
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_FINISH, [$this, 'sendResponse'], -10000);

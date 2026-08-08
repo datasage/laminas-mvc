@@ -12,6 +12,7 @@ use Laminas\ServiceManager\ServiceManager;
 use Laminas\Stdlib\DispatchableInterface;
 use Laminas\View\Model\ModelInterface;
 use Laminas\View\View;
+use Override;
 use Traversable;
 
 use function is_array;
@@ -73,6 +74,7 @@ class ViewManager extends AbstractListenerAggregate
     /**
      * {@inheritDoc}
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_BOOTSTRAP, [$this, 'onBootstrap'], 10000);

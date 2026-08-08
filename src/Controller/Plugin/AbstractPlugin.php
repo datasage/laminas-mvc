@@ -3,6 +3,7 @@
 namespace Laminas\Mvc\Controller\Plugin;
 
 use Laminas\Stdlib\DispatchableInterface as Dispatchable;
+use Override;
 
 abstract class AbstractPlugin implements PluginInterface
 {
@@ -14,6 +15,7 @@ abstract class AbstractPlugin implements PluginInterface
      *
      * @return void
      */
+    #[Override]
     public function setController(Dispatchable $controller)
     {
         $this->controller = $controller;
@@ -24,6 +26,7 @@ abstract class AbstractPlugin implements PluginInterface
      *
      * @return null|Dispatchable
      */
+    #[Override]
     public function getController()
     {
         return $this->controller;

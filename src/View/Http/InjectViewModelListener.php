@@ -7,12 +7,14 @@ use Laminas\EventManager\EventManagerInterface as Events;
 use Laminas\Mvc\MvcEvent;
 use Laminas\View\Model\ClearableModelInterface;
 use Laminas\View\Model\ModelInterface as ViewModel;
+use Override;
 
 class InjectViewModelListener extends AbstractListenerAggregate
 {
     /**
      * {@inheritDoc}
      */
+    #[Override]
     public function attach(Events $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH, [$this, 'injectViewModel'], -100);

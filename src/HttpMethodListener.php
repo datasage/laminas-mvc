@@ -6,6 +6,7 @@ use Laminas\EventManager\AbstractListenerAggregate;
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\Http\Request as HttpRequest;
 use Laminas\Http\Response as HttpResponse;
+use Override;
 
 use function in_array;
 use function strtoupper;
@@ -45,6 +46,7 @@ class HttpMethodListener extends AbstractListenerAggregate
     /**
      * {@inheritdoc}
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         if (! $this->isEnabled()) {

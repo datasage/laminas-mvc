@@ -11,6 +11,7 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\RouteListener;
 use Laminas\Router\Http\TreeRouteStack;
 use Laminas\Router\RouteMatch;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class ModuleRouteListenerTest extends TestCase
@@ -21,6 +22,7 @@ class ModuleRouteListenerTest extends TestCase
     private RouteListener $routeListener;
     private ModuleRouteListener $moduleRouteListener;
 
+    #[Override]
     public function setUp(): void
     {
         $this->request             = new Request();

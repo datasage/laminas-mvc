@@ -14,6 +14,7 @@ use Laminas\View\Model\FeedModel;
 use Laminas\View\Model\JsonModel;
 use Laminas\View\Model\ViewModel;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 class AcceptableViewModelSelectorTest extends TestCase
@@ -23,6 +24,7 @@ class AcceptableViewModelSelectorTest extends TestCase
     private SampleController $controller;
     private AcceptableViewModelSelector $plugin;
 
+    #[Override]
     public function setUp(): void
     {
         $this->request = new Request();

@@ -5,6 +5,7 @@ namespace Laminas\Mvc\Service;
 // phpcs:ignore
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 use Traversable;
 
 class ConfigFactory implements FactoryInterface
@@ -22,6 +23,7 @@ class ConfigFactory implements FactoryInterface
      * @param null|array $options
      * @return array|Traversable
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $moduleManager = $container->get('ModuleManager');

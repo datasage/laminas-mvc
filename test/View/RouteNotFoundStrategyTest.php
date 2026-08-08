@@ -13,6 +13,8 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\View\Http\RouteNotFoundStrategy;
 use Laminas\View\Model\ModelInterface;
 use Laminas\View\Model\ViewModel;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class RouteNotFoundStrategyTest extends TestCase
@@ -21,6 +23,7 @@ class RouteNotFoundStrategyTest extends TestCase
 
     private RouteNotFoundStrategy $strategy;
 
+    #[Override]
     public function setUp(): void
     {
         $this->strategy = new RouteNotFoundStrategy();
@@ -36,9 +39,7 @@ class RouteNotFoundStrategyTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider notFoundResponseProvider
-     */
+    #[DataProvider('notFoundResponseProvider')]
     public function testLeavesReturnedMessageIntact(mixed $result, string $assertion): void
     {
         $response = new Response();

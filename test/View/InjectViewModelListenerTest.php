@@ -10,6 +10,7 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\View\Http\InjectViewModelListener;
 use Laminas\Router\RouteMatch;
 use Laminas\View\Model\ViewModel;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function count;
@@ -22,6 +23,7 @@ class InjectViewModelListenerTest extends TestCase
     private MvcEvent $event;
     private RouteMatch $routeMatch;
 
+    #[Override]
     public function setUp(): void
     {
         $this->listener   = new InjectViewModelListener();

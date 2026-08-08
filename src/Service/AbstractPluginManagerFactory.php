@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 abstract class AbstractPluginManagerFactory implements FactoryInterface
 {
@@ -21,6 +22,7 @@ abstract class AbstractPluginManagerFactory implements FactoryInterface
      * @param  null|array $options
      * @return AbstractPluginManager
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $options            = $options ?: [];

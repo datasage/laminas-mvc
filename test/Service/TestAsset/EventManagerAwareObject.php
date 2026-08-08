@@ -6,6 +6,7 @@ namespace LaminasTest\Mvc\Service\TestAsset;
 
 use Laminas\EventManager\EventManagerAwareInterface;
 use Laminas\EventManager\EventManagerInterface;
+use Override;
 
 class EventManagerAwareObject implements EventManagerAwareInterface
 {
@@ -13,6 +14,7 @@ class EventManagerAwareObject implements EventManagerAwareInterface
 
     protected EventManagerInterface|null $events = null;
 
+    #[Override]
     public function setEventManager(EventManagerInterface $events)
     {
         $this->events = $events;
@@ -21,6 +23,7 @@ class EventManagerAwareObject implements EventManagerAwareInterface
     /**
      * @return EventManagerInterface
      */
+    #[Override]
     public function getEventManager()
     {
         if (

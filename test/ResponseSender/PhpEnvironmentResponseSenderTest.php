@@ -17,9 +17,9 @@ class PhpEnvironmentResponseSenderTest extends TestCase
 {
     public function testSendResponseIgnoresInvalidResponseTypes()
     {
-        $mockResponse          = $this->getMockForAbstractClass(ResponseInterface::class);
+        $mockResponse          = $this->createMock(ResponseInterface::class);
         $mockSendResponseEvent = $this->getSendResponseEventMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->will($this->returnValue($mockResponse));
+        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
         $responseSender = new PhpEnvironmentResponseSender();
         ob_start();
         $responseSender($mockSendResponseEvent);
@@ -30,9 +30,9 @@ class PhpEnvironmentResponseSenderTest extends TestCase
     public function testSendResponseTwoTimesPrintsResponseOnlyOnce()
     {
         $mockResponse = $this->createMock(Response::class);
-        $mockResponse->expects($this->any())->method('getContent')->will($this->returnValue('body'));
+        $mockResponse->expects($this->any())->method('getContent')->willReturn('body');
         $mockSendResponseEvent = $this->getSendResponseEventMock();
-        $mockSendResponseEvent->expects($this->any())->method('getResponse')->will($this->returnValue($mockResponse));
+        $mockSendResponseEvent->expects($this->any())->method('getResponse')->willReturn($mockResponse);
         $mockSendResponseEvent->expects($this->once())->method('setContentSent');
         $responseSender = new PhpEnvironmentResponseSender();
         ob_start();
@@ -55,13 +55,13 @@ class PhpEnvironmentResponseSenderTest extends TestCase
 
         $mockSendResponseEvent->expects($this->any())
             ->method('contentSent')
-            ->will($this->returnCallback(static function () use (&$returnValue): bool {
+            ->willReturnCallback(static function () use (&$returnValue): bool {
                 if (false === $returnValue) {
                     $returnValue = true;
                     return false;
                 }
                 return true;
-            }));
+            });
         return $mockSendResponseEvent;
     }
 }

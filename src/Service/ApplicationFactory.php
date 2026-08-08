@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\Application;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class ApplicationFactory implements FactoryInterface
 {
@@ -19,6 +20,7 @@ class ApplicationFactory implements FactoryInterface
      * @param  null|array $options
      * @return Application
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new Application(

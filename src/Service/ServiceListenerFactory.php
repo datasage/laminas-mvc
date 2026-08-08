@@ -11,6 +11,7 @@ use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Laminas\View;
+use Override;
 
 use function get_debug_type;
 use function gettype;
@@ -117,6 +118,7 @@ class ServiceListenerFactory implements FactoryInterface
      * @throws ServiceNotCreatedException For invalid ServiceListener service.
      * @throws ServiceNotCreatedException For invalid configurations.
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $configuration = $container->get('ApplicationConfig');

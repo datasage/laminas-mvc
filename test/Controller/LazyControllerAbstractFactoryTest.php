@@ -19,6 +19,8 @@ use LaminasTest\Mvc\Controller\TestAsset\ControllerWithTypeHintedConstructorPara
 use LaminasTest\Mvc\Controller\TestAsset\ControllerWithUnionTypeHintedConstructorParameter;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use LaminasTest\Mvc\Controller\TestAsset\SampleInterface;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function sprintf;
@@ -27,6 +29,7 @@ class LazyControllerAbstractFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
+    #[Override]
     public function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
@@ -39,9 +42,7 @@ class LazyControllerAbstractFactoryTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider nonClassRequestedNames
-     */
+    #[DataProvider('nonClassRequestedNames')]
     public function testCanCreateReturnsFalseForNonClassRequestedNames(string $requestedName): void
     {
         $factory = new LazyControllerAbstractFactory();
@@ -86,9 +87,6 @@ class LazyControllerAbstractFactoryTest extends TestCase
         $factory($this->container, ControllerWithTypeHintedConstructorParameter::class);
     }
 
-    /**
-     * @requires PHP >= 8.0
-     */
     public function testFactoryRaisesExceptionWhenResolvingUnionTypeHintedService(): void
     {
         $this->container->method('has')->willReturn(false);

@@ -7,12 +7,14 @@ namespace LaminasTest\Mvc\Controller\Plugin\TestAsset;
 // phpcs:ignore
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class SamplePluginWithConstructorFactory implements FactoryInterface
 {
     protected array $options;
 
     /** @inheritDoc */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new SamplePluginWithConstructor($options);

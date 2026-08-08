@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\ViewManager as HttpViewManager;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class HttpViewManagerFactory implements FactoryInterface
 {
@@ -16,6 +17,7 @@ class HttpViewManagerFactory implements FactoryInterface
      * @param  null|array $options
      * @return HttpViewManager
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new HttpViewManager();

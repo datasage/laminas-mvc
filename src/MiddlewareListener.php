@@ -12,6 +12,7 @@ use Laminas\Mvc\Controller\MiddlewareController;
 use Laminas\Mvc\Exception\InvalidMiddlewareException;
 use Laminas\Psr7Bridge\Psr7Response;
 use Laminas\Stratigility\MiddlewarePipe;
+use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Throwable;
@@ -35,6 +36,7 @@ class MiddlewareListener extends AbstractListenerAggregate
      * @param  int                   $priority
      * @return void
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH, [$this, 'onDispatch'], 1);

@@ -18,6 +18,7 @@ use LaminasTest\Mvc\Controller\Plugin\TestAsset\SamplePlugin;
 use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use LaminasTest\Mvc\Service\TestAsset\Dispatchable;
 use LaminasTest\Mvc\Service\TestAsset\InvalidDispatchableClass;
+use Override;
 use PHPUnit\Framework\TestCase;
 
 use function array_merge_recursive;
@@ -32,6 +33,7 @@ class ControllerManagerFactoryTest extends TestCase
     protected $loader;
     private array $defaultServiceConfig;
 
+    #[Override]
     public function setUp(): void
     {
         $loaderFactory              = new ControllerManagerFactory();

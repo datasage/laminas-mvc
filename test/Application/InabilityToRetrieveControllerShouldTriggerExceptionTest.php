@@ -6,15 +6,14 @@ namespace LaminasTest\Mvc\Application;
 
 use Laminas\Mvc\Application;
 use Laminas\Mvc\MvcEvent;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 class InabilityToRetrieveControllerShouldTriggerExceptionTest extends TestCase
 {
     use MissingControllerTrait;
 
-    /**
-     * @group error-handling
-     */
+    #[Group('error-handling')]
     public function testInabilityToRetrieveControllerShouldTriggerExceptionError()
     {
         $application = $this->prepareApplication();

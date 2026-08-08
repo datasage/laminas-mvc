@@ -11,6 +11,7 @@ use Laminas\Mvc\Exception\InvalidControllerException;
 use Laminas\Router\RouteMatch;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\Stdlib\ArrayUtils;
+use Override;
 use Throwable;
 
 use function function_exists;
@@ -50,6 +51,7 @@ class DispatchListener extends AbstractListenerAggregate
      * @param  int $priority
      * @return void
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH, [$this, 'onDispatch']);

@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver as ViewResolver;
+use Override;
 
 use function is_array;
 
@@ -21,6 +22,7 @@ class ViewTemplateMapResolverFactory implements FactoryInterface
      * @param  null|array $options
      * @return ViewResolver\TemplateMapResolver
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $config = $container->get('config');

@@ -6,12 +6,14 @@ namespace LaminasTest\Mvc\Service\TestAsset;
 
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\Mvc\Controller\AbstractActionController;
+use Override;
 
 class Dispatchable extends AbstractActionController
 {
     /**
      * Override, so we can test injection
      */
+    #[Override]
     public function getEventManager(): EventManagerInterface|null
     {
         return $this->events;

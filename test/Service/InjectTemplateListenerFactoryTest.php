@@ -8,14 +8,14 @@ use ArrayObject;
 use Laminas\Mvc\Service\InjectTemplateListenerFactory;
 use Laminas\Mvc\View\Http\InjectTemplateListener;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for {@see \Laminas\Mvc\Service\InjectTemplateListenerFactory}
- *
- * @covers \Laminas\Mvc\Service\InjectTemplateListenerFactory
  */
+#[CoversClass(InjectTemplateListenerFactory::class)]
 class InjectTemplateListenerFactoryTest extends TestCase
 {
     public function testFactoryCanCreateInjectTemplateListener()

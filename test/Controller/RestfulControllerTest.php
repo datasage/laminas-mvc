@@ -18,6 +18,9 @@ use LaminasTest\Mvc\Controller\TestAsset\Request;
 use LaminasTest\Mvc\Controller\TestAsset\RestfulContentTypeTestController;
 use LaminasTest\Mvc\Controller\TestAsset\RestfulMethodNotAllowedTestController;
 use LaminasTest\Mvc\Controller\TestAsset\RestfulTestController;
+use Override;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 use ReflectionObject;
 use stdClass;
@@ -40,6 +43,7 @@ class RestfulControllerTest extends TestCase
     private SharedEventManager $sharedEvents;
     private EventManager $events;
 
+    #[Override]
     public function setUp(): void
     {
         $this->controller      = new RestfulTestController();
@@ -233,9 +237,7 @@ class RestfulControllerTest extends TestCase
         $this->assertEquals('patch', $this->routeMatch->getParam('action'));
     }
 
-    /**
-     * @group 7086
-     */
+    #[Group('7086')]
     public function testOnDispatchHonorsStatusCodeWithHeadMethod(): void
     {
         $this->controller->headResponse = new Response();
@@ -432,9 +434,7 @@ class RestfulControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider matchingContentTypes
-     */
+    #[DataProvider('matchingContentTypes')]
     public function testRequestingContentTypeReturnsTrueForValidMatches(string $contentType): void
     {
         $this->request->getHeaders()->addHeaderLine('Content-Type', $contentType);
@@ -452,9 +452,7 @@ class RestfulControllerTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider nonMatchingContentTypes
-     */
+    #[DataProvider('nonMatchingContentTypes')]
     public function testRequestingContentTypeReturnsFalseForInvalidMatches(string $contentType): void
     {
         $this->request->getHeaders()->addHeaderLine('Content-Type', $contentType);
@@ -511,9 +509,7 @@ class RestfulControllerTest extends TestCase
         $this->assertEquals('bar', $result);
     }
 
-    /**
-     * @dataProvider providerNotImplementedMethodSets504HttpCodeProvider
-     */
+    #[DataProvider('providerNotImplementedMethodSets504HttpCodeProvider')]
     public function testNotImplementedMethodSets504HttpCode(
         string $method,
         array|string $content,

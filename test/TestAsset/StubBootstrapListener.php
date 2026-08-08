@@ -7,6 +7,7 @@ namespace LaminasTest\Mvc\TestAsset;
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\EventManager\ListenerAggregateInterface;
 use Laminas\Mvc\MvcEvent;
+use Override;
 
 class StubBootstrapListener implements ListenerAggregateInterface
 {
@@ -15,6 +16,7 @@ class StubBootstrapListener implements ListenerAggregateInterface
     /**
      * @inheritDoc
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_BOOTSTRAP, [$this, 'onBootstrap']);
@@ -23,6 +25,7 @@ class StubBootstrapListener implements ListenerAggregateInterface
     /**
      * @inheritDoc
      */
+    #[Override]
     public function detach(EventManagerInterface $events)
     {
         foreach ($this->listeners as $index => $listener) {

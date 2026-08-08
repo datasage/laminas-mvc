@@ -10,13 +10,13 @@ use Laminas\Mvc\Controller\AbstractController;
 use Laminas\Mvc\InjectApplicationEventInterface;
 use Laminas\Stdlib\DispatchableInterface;
 use LaminasTest\Mvc\Controller\TestAsset\AbstractControllerStub;
+use Override;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 use ReflectionProperty;
 
-/**
- * @covers \Laminas\Mvc\Controller\AbstractController
- */
+#[CoversClass(AbstractController::class)]
 class AbstractControllerTest extends TestCase
 {
     /** @var AbstractController|PHPUnit_Framework_MockObject_MockObject */
@@ -25,6 +25,7 @@ class AbstractControllerTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[Override]
     protected function setUp(): void
     {
         $this->controller = new AbstractControllerStub();

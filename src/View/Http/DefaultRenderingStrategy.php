@@ -10,6 +10,7 @@ use Laminas\Mvc\MvcEvent;
 use Laminas\Stdlib\ResponseInterface as Response;
 use Laminas\View\Model\ModelInterface as ViewModel;
 use Laminas\View\View;
+use Override;
 use Throwable;
 
 class DefaultRenderingStrategy extends AbstractListenerAggregate
@@ -31,6 +32,7 @@ class DefaultRenderingStrategy extends AbstractListenerAggregate
     /**
      * {@inheritDoc}
      */
+    #[Override]
     public function attach(EventManagerInterface $events, $priority = 1)
     {
         $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER, [$this, 'render'], -10000);

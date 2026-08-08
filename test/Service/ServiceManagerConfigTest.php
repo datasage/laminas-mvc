@@ -9,15 +9,16 @@ use Laminas\EventManager\EventManagerAwareInterface;
 use Laminas\EventManager\SharedEventManagerInterface;
 use Laminas\Mvc\Service\ServiceManagerConfig;
 use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\Initializer\InitializerInterface;
 use Laminas\ServiceManager\ServiceManager;
 use LaminasTest\Mvc\Service\TestAsset\EventManagerAwareObject;
+use Override;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-/**
- * @covers \Laminas\Mvc\Service\ServiceManagerConfig
- */
+#[CoversClass(ServiceManagerConfig::class)]
 class ServiceManagerConfigTest extends TestCase
 {
     private ServiceManagerConfig $config;
@@ -27,6 +28,7 @@ class ServiceManagerConfigTest extends TestCase
     /**
      * {@inheritDoc}
      */
+    #[Override]
     protected function setUp(): void
     {
         $this->config   = new ServiceManagerConfig();
@@ -126,9 +128,7 @@ class ServiceManagerConfigTest extends TestCase
     public function testEventManagerInitializerCanBeReplaced(): void
     {
         $instance       = $this->createMock(EventManagerAwareInterface::class);
-        $initializer    = $this->getMockBuilder(stdClass::class)
-            ->addMethods(['__invoke'])
-            ->getMock();
+        $initializer    = $this->createMock(InitializerInterface::class);
         $config         = new ServiceManagerConfig([
             'initializers' => [
                 'EventManagerAwareInitializer' => $initializer,

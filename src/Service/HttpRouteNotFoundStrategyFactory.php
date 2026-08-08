@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\RouteNotFoundStrategy;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class HttpRouteNotFoundStrategyFactory implements FactoryInterface
 {
@@ -16,6 +17,7 @@ class HttpRouteNotFoundStrategyFactory implements FactoryInterface
      * @param  null|array $options
      * @return RouteNotFoundStrategy
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $strategy = new RouteNotFoundStrategy();

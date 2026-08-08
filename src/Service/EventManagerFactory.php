@@ -6,6 +6,7 @@ namespace Laminas\Mvc\Service;
 use Interop\Container\ContainerInterface;
 use Laminas\EventManager\EventManager;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use Override;
 
 class EventManagerFactory implements FactoryInterface
 {
@@ -19,6 +20,7 @@ class EventManagerFactory implements FactoryInterface
      * @param  null|array $options
      * @return EventManager
      */
+    #[Override]
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $shared = $container->has('SharedEventManager') ? $container->get('SharedEventManager') : null;
