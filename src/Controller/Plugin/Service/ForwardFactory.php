@@ -3,11 +3,11 @@
 namespace Laminas\Mvc\Controller\Plugin\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Mvc\Controller\Plugin\Forward;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function sprintf;
 

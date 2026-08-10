@@ -3,10 +3,10 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\InjectTemplateListener;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function is_array;
 

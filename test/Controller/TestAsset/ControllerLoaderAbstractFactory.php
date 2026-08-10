@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Controller\TestAsset;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use LaminasTest\Mvc\TestAsset\PathController;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function class_exists;
 

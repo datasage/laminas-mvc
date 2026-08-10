@@ -3,9 +3,9 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Override;
+use Psr\Container\ContainerInterface;
 use Traversable;
 
 class ConfigFactory implements FactoryInterface

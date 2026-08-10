@@ -3,10 +3,10 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver\PrefixPathStackResolver;
 use Override;
+use Psr\Container\ContainerInterface;
 
 class ViewPrefixPathStackResolverFactory implements FactoryInterface
 {

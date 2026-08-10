@@ -3,10 +3,10 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Renderer\PhpRenderer;
 use Override;
+use Psr\Container\ContainerInterface;
 
 class ViewPhpRendererFactory implements FactoryInterface
 {

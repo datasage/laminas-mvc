@@ -4,7 +4,6 @@ namespace Laminas\Mvc;
 
 use Exception;
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Laminas\EventManager\AbstractListenerAggregate;
 use Laminas\EventManager\EventManagerInterface;
@@ -13,6 +12,7 @@ use Laminas\Mvc\Exception\InvalidMiddlewareException;
 use Laminas\Psr7Bridge\Psr7Response;
 use Laminas\Stratigility\MiddlewarePipe;
 use Override;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Throwable;

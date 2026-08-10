@@ -3,7 +3,6 @@
 namespace Laminas\Mvc\Controller;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\EventManager\EventManagerAwareInterface;
 use Laminas\EventManager\SharedEventManagerInterface;
 use Laminas\ServiceManager\AbstractPluginManager;
@@ -11,6 +10,7 @@ use Laminas\ServiceManager\ConfigInterface;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\Stdlib\DispatchableInterface;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function get_debug_type;
 use function method_exists;

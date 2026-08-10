@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Controller;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Mvc\Controller\LazyControllerAbstractFactory;
 use Laminas\Mvc\Exception\DomainException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
@@ -22,6 +21,7 @@ use LaminasTest\Mvc\Controller\TestAsset\SampleInterface;
 use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 
 use function sprintf;
 

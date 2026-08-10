@@ -3,7 +3,6 @@
 namespace Laminas\Mvc\Controller;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Laminas\Filter\FilterPluginManager;
 use Laminas\Hydrator\HydratorPluginManager;
@@ -19,6 +18,7 @@ use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Laminas\Stdlib\DispatchableInterface;
 use Laminas\Validator\ValidatorPluginManager;
 use Override;
+use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionNamedType;
 use ReflectionParameter;

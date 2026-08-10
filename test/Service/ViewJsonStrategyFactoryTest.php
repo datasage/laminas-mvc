@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Mvc\Service\ViewJsonStrategyFactory;
 use Laminas\View\Renderer\JsonRenderer;
 use Laminas\View\Strategy\JsonStrategy;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 
 class ViewJsonStrategyFactoryTest extends TestCase
 {
