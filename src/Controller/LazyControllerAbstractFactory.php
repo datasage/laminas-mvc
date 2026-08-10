@@ -146,10 +146,9 @@ class LazyControllerAbstractFactory implements AbstractFactoryInterface
      *
      * Returns a callback for resolving a parameter to a value.
      *
-     * @param string $requestedName
      * @return callable
      */
-    private function resolveParameter(ContainerInterface $container, $requestedName)
+    private function resolveParameter(ContainerInterface $container, string $requestedName)
     {
         /**
          * @param ReflectionParameter $parameter
