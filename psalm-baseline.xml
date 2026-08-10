@@ -293,6 +293,9 @@
     <ClassMustBeFinal>
       <code><![CDATA[LazyControllerAbstractFactory]]></code>
     </ClassMustBeFinal>
+    <InvalidStringClass>
+      <code><![CDATA[new $requestedName(...$parameters)]]></code>
+    </InvalidStringClass>
     <LessSpecificReturnStatement>
       <code><![CDATA[new $requestedName()]]></code>
       <code><![CDATA[new $requestedName()]]></code>
@@ -308,7 +311,6 @@
     <MixedMethodCall>
       <code><![CDATA[new $requestedName()]]></code>
       <code><![CDATA[new $requestedName()]]></code>
-      <code><![CDATA[new $requestedName(...$parameters)]]></code>
     </MixedMethodCall>
     <MoreSpecificReturnType>
       <code><![CDATA[DispatchableInterface]]></code>

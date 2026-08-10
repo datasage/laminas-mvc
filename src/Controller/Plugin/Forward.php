@@ -256,10 +256,9 @@ class Forward extends AbstractPlugin
      * Varies retrieval based on laminas-eventmanager version.
      *
      * @param string|int $id
-     * @param string $event
      * @return array|Traversable
      */
-    private function getSharedListenersById($id, $event, SharedEvents $sharedEvents)
+    private function getSharedListenersById($id, string $event, SharedEvents $sharedEvents)
     {
         return $sharedEvents->getListeners([$id], $event);
     }
