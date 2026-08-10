@@ -3,10 +3,10 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver as ViewResolver;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function is_array;
 

@@ -3,7 +3,6 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ModuleManager\Listener\ServiceListener;
 use Laminas\ModuleManager\Listener\ServiceListenerInterface;
 use Laminas\Mvc;
@@ -12,6 +11,7 @@ use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Laminas\View;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function get_debug_type;
 use function gettype;

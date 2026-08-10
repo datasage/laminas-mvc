@@ -3,8 +3,7 @@
 namespace Laminas\Mvc\Service;
 
 use ArrayAccess;
-// phpcs:ignore
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;// phpcs:ignore
 
 use function is_array;
 

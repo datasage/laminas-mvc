@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Controller\TestAsset;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Override;
+use Psr\Container\ContainerInterface;
 
 class UnlocatableControllerLoaderAbstractFactory implements AbstractFactoryInterface
 {

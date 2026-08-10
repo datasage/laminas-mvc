@@ -3,11 +3,11 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Mvc\View\Http\DefaultRenderingStrategy;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\View;
 use Override;
+use Psr\Container\ContainerInterface;
 
 class HttpDefaultRenderingStrategyFactory implements FactoryInterface
 {

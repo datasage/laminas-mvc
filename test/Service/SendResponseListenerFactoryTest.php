@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace LaminasTest\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\EventManager\SharedEventManagerInterface;
 use Laminas\Mvc\ResponseSender\HttpResponseSender;
@@ -15,6 +14,7 @@ use Laminas\Mvc\ResponseSender\SimpleStreamResponseSender;
 use Laminas\Mvc\SendResponseListener;
 use Laminas\Mvc\Service\SendResponseListenerFactory;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 class SendResponseListenerFactoryTest extends TestCase

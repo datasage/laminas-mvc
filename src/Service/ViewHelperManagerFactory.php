@@ -3,7 +3,6 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\Router\RouteMatch;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\View\Helper as ViewHelper;
@@ -12,6 +11,7 @@ use Laminas\View\Helper\Doctype;
 use Laminas\View\Helper\Url;
 use Laminas\View\HelperPluginManager;
 use Override;
+use Psr\Container\ContainerInterface;
 
 use function is_callable;
 

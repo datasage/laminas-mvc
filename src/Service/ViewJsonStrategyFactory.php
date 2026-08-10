@@ -3,10 +3,10 @@
 namespace Laminas\Mvc\Service;
 
 // phpcs:ignore
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Strategy\JsonStrategy;
 use Override;
+use Psr\Container\ContainerInterface;
 
 class ViewJsonStrategyFactory implements FactoryInterface
 {
