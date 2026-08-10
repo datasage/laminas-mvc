@@ -275,10 +275,6 @@
     <MissingParamType>
       <code><![CDATA[$plugin]]></code>
     </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[injectEventManager]]></code>
-      <code><![CDATA[injectPluginManager]]></code>
-    </MissingReturnType>
     <MissingTemplateParam>
       <code><![CDATA[ControllerManager]]></code>
     </MissingTemplateParam>
@@ -746,9 +742,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[DispatchListener]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[reportMonitorEvent]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$application::ERROR_CONTROLLER_INVALID]]></code>
       <code><![CDATA[$application::ERROR_CONTROLLER_NOT_FOUND]]></code>
@@ -855,10 +848,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[HttpMethodListener]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[setAllowedMethods]]></code>
-      <code><![CDATA[setEnabled]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
@@ -1090,9 +1079,6 @@
       <code><![CDATA[$event]]></code>
       <code><![CDATA[$eventManager]]></code>
     </MissingConstructor>
-    <MissingReturnType>
-      <code><![CDATA[attachDefaultListeners]]></code>
-    </MissingReturnType>
   </file>
   <file src="src/Service/AbstractPluginManagerFactory.php">
     <LessSpecificReturnStatement>
@@ -1190,9 +1176,6 @@
     <DeprecatedClass>
       <code><![CDATA[View::class]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[injectLayoutTemplate]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$container->get(View::class)]]></code>
       <code><![CDATA[$layout]]></code>
@@ -1205,10 +1188,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[HttpExceptionStrategyFactory]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[injectDisplayExceptions]]></code>
-      <code><![CDATA[injectExceptionTemplate]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$flag]]></code>
       <code><![CDATA[$template]]></code>
@@ -1248,11 +1227,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[HttpRouteNotFoundStrategyFactory]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[injectDisplayExceptions]]></code>
-      <code><![CDATA[injectDisplayNotFoundReason]]></code>
-      <code><![CDATA[injectNotFoundTemplate]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$flag]]></code>
       <code><![CDATA[$flag]]></code>
@@ -1373,10 +1347,6 @@
     <InvalidThrow>
       <code><![CDATA[ServiceListenerInterface]]></code>
     </InvalidThrow>
-    <MissingReturnType>
-      <code><![CDATA[injectServiceListenerOptions]]></code>
-      <code><![CDATA[validatePluginManagerOptions]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$configuration['service_listener_options']]]></code>
       <code><![CDATA[$newServiceManager]]></code>
@@ -1699,9 +1669,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[InjectRoutematchParamsListener]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[setOverwrite]]></code>
-    </MissingReturnType>
     <MixedAssignment>
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$val]]></code>
@@ -1724,9 +1691,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[InjectTemplateListener]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[setPreferRouteMatchController]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$action]]></code>
       <code><![CDATA[$controller]]></code>
@@ -1809,9 +1773,6 @@
       <code><![CDATA[$event]]></code>
       <code><![CDATA[$services]]></code>
     </MissingConstructor>
-    <MissingReturnType>
-      <code><![CDATA[injectViewModelIntoPlugin]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$layoutTemplate]]></code>
     </MixedArgument>
@@ -1866,9 +1827,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testAllowsReturningEarlyFromRouting]]></code>
-    </MissingReturnType>
     <UnusedClosureParam>
       <code><![CDATA[$e]]></code>
     </UnusedClosureParam>
@@ -1900,9 +1858,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ControllerIsDispatchedTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testControllerIsDispatchedDuringRun]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
       <code><![CDATA[$response->toString()]]></code>
@@ -1921,9 +1876,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEvent]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
     </MixedArgument>
@@ -1942,9 +1894,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testInabilityToRetrieveControllerShouldTriggerDispatchError]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
       <code><![CDATA[$response->getContent()]]></code>
@@ -1969,9 +1918,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testInabilityToRetrieveControllerShouldTriggerExceptionError]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
       <code><![CDATA[$response->getContent()]]></code>
@@ -1993,9 +1939,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[InitializationIntegrationTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testDefaultInitializationWorkflow]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
       <code><![CDATA[$response->toString()]]></code>
@@ -2016,9 +1959,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testInvalidControllerTypeShouldTriggerDispatchError]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$response->getContent()]]></code>
       <code><![CDATA[$response->getContent()]]></code>
@@ -2113,9 +2053,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$e]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testRoutingIsExcecutedDuringRun]]></code>
-    </MissingReturnType>
     <MixedMethodCall>
       <code><![CDATA[getRouteMatch]]></code>
     </MixedMethodCall>
@@ -2474,12 +2411,6 @@
     <MissingClosureParamType>
       <code><![CDATA[$services]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testCanInjectEventManager]]></code>
-      <code><![CDATA[testCanInjectPluginManager]]></code>
-      <code><![CDATA[testDoNotUsePeeringServiceManagers]]></code>
-      <code><![CDATA[testInjectEventManagerWillNotOverwriteExistingEventManagerIfItAlreadyHasASharedManager]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$services]]></code>
     </MixedArgument>
@@ -2507,9 +2438,6 @@
       <code><![CDATA[$services]]></code>
       <code><![CDATA[$services]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testPluginReceivesCurrentController]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$services]]></code>
     </MixedArgument>
@@ -2880,9 +2808,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ListenerStub]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[myCallback]]></code>
-    </MissingReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[myCallback]]></code>
     </PossiblyUnusedMethod>
@@ -2909,9 +2834,6 @@
     <MissingConstructor>
       <code><![CDATA[$options]]></code>
     </MissingConstructor>
-    <MissingReturnType>
-      <code><![CDATA[setCreationOptions]]></code>
-    </MissingReturnType>
     <PossiblyNullArgument>
       <code><![CDATA[$options]]></code>
     </PossiblyNullArgument>
@@ -2952,14 +2874,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[PluginManagerTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testCanCreateByFactory]]></code>
-      <code><![CDATA[testCanCreateByFactoryWithConstrutor]]></code>
-      <code><![CDATA[testGetWithConstructor]]></code>
-      <code><![CDATA[testGetWithConstructorAndOptions]]></code>
-      <code><![CDATA[testPluginManagerInjectsControllerForExistingPlugin]]></code>
-      <code><![CDATA[testPluginManagerInjectsControllerInPlugin]]></code>
-    </MissingReturnType>
     <UndefinedInterfaceMethod>
       <code><![CDATA[getBar]]></code>
       <code><![CDATA[getBar]]></code>
@@ -3405,20 +3319,12 @@
       <code><![CDATA[InvalidMiddlewareException::fromNull()]]></code>
       <code><![CDATA[new InvalidMiddlewareException()]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[testFromMiddlewareName]]></code>
-      <code><![CDATA[testFromNull]]></code>
-      <code><![CDATA[testToMiddlewareNameWhenNotSet]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Exception/ReachedFinalHandlerExceptionTest.php">
     <DeprecatedClass>
       <code><![CDATA[ReachedFinalHandlerException::class]]></code>
       <code><![CDATA[ReachedFinalHandlerException::create()]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[testFromNothing]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/HttpMethodListenerTest.php">
     <ClassMustBeFinal>
@@ -3434,10 +3340,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[AbstractResponseSenderTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testSendHeadersSendsStatusLast]]></code>
-      <code><![CDATA[testSendHeadersTwoTimesSendsOnlyOnce]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$header]]></code>
     </MixedArgument>
@@ -3452,10 +3354,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[PhpEnvironmentResponseSenderTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testSendResponseIgnoresInvalidResponseTypes]]></code>
-      <code><![CDATA[testSendResponseTwoTimesPrintsResponseOnlyOnce]]></code>
-    </MissingReturnType>
     <MixedMethodCall>
       <code><![CDATA[method]]></code>
       <code><![CDATA[willReturn]]></code>
@@ -3474,9 +3372,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[SendResponseEventTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testContentSentAndHeadersSent]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/ResponseSender/SimpleStreamResponseSenderTest.php">
     <ClassMustBeFinal>
@@ -3511,12 +3406,6 @@
             ],
         ]))]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[testCallPluginWithControllerPluginManager]]></code>
-      <code><![CDATA[testCannotLoadControllerFromPeer]]></code>
-      <code><![CDATA[testCannotLoadInvalidDispatchable]]></code>
-      <code><![CDATA[testControllerLoadedCanBeInjectedWithValuesFromPeer]]></code>
-    </MissingReturnType>
     <MixedAssignment>
       <code><![CDATA[$controllerPluginManager]]></code>
       <code><![CDATA[$loader]]></code>
@@ -3545,20 +3434,11 @@
     <ClassMustBeFinal>
       <code><![CDATA[HttpMethodListenerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testCreateWithConfig]]></code>
-      <code><![CDATA[testCreateWithDefaults]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/InjectTemplateListenerFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[InjectTemplateListenerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testFactoryCanCreateInjectTemplateListener]]></code>
-      <code><![CDATA[testFactoryCanSetControllerMap]]></code>
-      <code><![CDATA[testFactoryCanSetControllerMapViaArrayAccessVM]]></code>
-    </MissingReturnType>
     <PossiblyUndefinedMethod>
       <code><![CDATA[mapController]]></code>
       <code><![CDATA[mapController]]></code>
@@ -3568,17 +3448,11 @@
     <ClassMustBeFinal>
       <code><![CDATA[RequestFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testFactoryCreatesHttpRequest]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/ResponseFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[ResponseFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testFactoryCreatesHttpResponse]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/SendResponseListenerFactoryTest.php">
     <ClassMustBeFinal>
@@ -3594,25 +3468,11 @@
       <code><![CDATA[$eventName]]></code>
       <code><![CDATA[$priority]]></code>
     </MissingClosureParamType>
-    <MissingReturnType>
-      <code><![CDATA[testFactoryReturnsListenerWithEventManagerFromContainer]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/ServiceListenerFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[ServiceListenerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testInvalidOptionType]]></code>
-      <code><![CDATA[testInvalidTypeConfigKey]]></code>
-      <code><![CDATA[testInvalidTypeInterface]]></code>
-      <code><![CDATA[testInvalidTypeMethod]]></code>
-      <code><![CDATA[testInvalidTypeServiceManager]]></code>
-      <code><![CDATA[testMissingConfigKey]]></code>
-      <code><![CDATA[testMissingInterface]]></code>
-      <code><![CDATA[testMissingMethod]]></code>
-      <code><![CDATA[testMissingServiceManager]]></code>
-    </MissingReturnType>
     <MixedArrayAccess>
       <code><![CDATA[$config['service_listener_options'][0]]]></code>
       <code><![CDATA[$config['service_listener_options'][0]]]></code>
@@ -3769,9 +3629,6 @@
     <MissingConstructor>
       <code><![CDATA[$injectedValue]]></code>
     </MissingConstructor>
-    <MissingReturnType>
-      <code><![CDATA[setInjectedValue]]></code>
-    </MissingReturnType>
     <UnusedClass>
       <code><![CDATA[ControllerWithDependencies]]></code>
     </UnusedClass>
@@ -3812,9 +3669,6 @@
       <code><![CDATA[FeedRenderer::class]]></code>
       <code><![CDATA[FeedStrategy::class]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[testReturnsFeedStrategy]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/ViewHelperManagerFactoryTest.php">
     <ClassMustBeFinal>
@@ -3869,25 +3723,16 @@
       <code><![CDATA[JsonRenderer::class]]></code>
       <code><![CDATA[JsonStrategy::class]]></code>
     </DeprecatedClass>
-    <MissingReturnType>
-      <code><![CDATA[testReturnsJsonStrategy]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/ViewManagerFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[ViewManagerFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testReturnsHttpViewManager]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/Service/ViewPrefixPathStackResolverFactoryTest.php">
     <ClassMustBeFinal>
       <code><![CDATA[ViewPrefixPathStackResolverFactoryTest]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[testCreateService]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/TestAsset/Locator.php">
     <ClassMustBeFinal>
@@ -3949,17 +3794,11 @@
     <ClassMustBeFinal>
       <code><![CDATA[MockSendResponseListener]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[sendResponse]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/TestAsset/MockViewManager.php">
     <ClassMustBeFinal>
       <code><![CDATA[MockViewManager]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[onBootstrap]]></code>
-    </MissingReturnType>
   </file>
   <file src="test/TestAsset/PathController.php">
     <ClassMustBeFinal>
@@ -4154,9 +3993,6 @@
       <code><![CDATA[addToAssertionCount]]></code>
       <code><![CDATA[addToAssertionCount]]></code>
     </InternalMethod>
-    <MissingReturnType>
-      <code><![CDATA[testNotFoundTemplateIsMutable]]></code>
-    </MissingReturnType>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$variables]]></code>
       <code><![CDATA[$variables]]></code>

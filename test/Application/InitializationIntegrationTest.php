@@ -14,7 +14,7 @@ use function ob_start;
 
 class InitializationIntegrationTest extends TestCase
 {
-    public function testDefaultInitializationWorkflow()
+    public function testDefaultInitializationWorkflow(): void
     {
         $appConfig = [
             'modules'                 => [

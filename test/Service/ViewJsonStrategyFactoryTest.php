@@ -21,7 +21,7 @@ class ViewJsonStrategyFactoryTest extends TestCase
         return $container;
     }
 
-    public function testReturnsJsonStrategy()
+    public function testReturnsJsonStrategy(): void
     {
         $factory = new ViewJsonStrategyFactory();
         $result  = $factory($this->createContainer(), 'ViewJsonStrategy');

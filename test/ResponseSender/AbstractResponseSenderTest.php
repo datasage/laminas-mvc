@@ -21,7 +21,7 @@ use function version_compare;
 class AbstractResponseSenderTest extends TestCase
 {
     #[RunInSeparateProcess]
-    public function testSendHeadersTwoTimesSendsOnlyOnce()
+    public function testSendHeadersTwoTimesSendsOnlyOnce(): void
     {
         if (! function_exists('xdebug_get_headers')) {
             $this->markTestSkipped('Xdebug extension needed, skipped test');
@@ -65,7 +65,7 @@ class AbstractResponseSenderTest extends TestCase
     }
 
     #[RunInSeparateProcess]
-    public function testSendHeadersSendsStatusLast()
+    public function testSendHeadersSendsStatusLast(): void
     {
         if (! function_exists('xdebug_get_headers')) {
             $this->markTestSkipped('Xdebug extension needed, skipped test');

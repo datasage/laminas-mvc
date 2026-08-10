@@ -13,7 +13,7 @@ class ExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEventTest extends Te
     use BadControllerTrait;
 
     #[Group('error-handling')]
-    public function testExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEvent()
+    public function testExceptionsRaisedInDispatchableShouldRaiseDispatchErrorEvent(): void
     {
         $application = $this->prepareApplication();
 

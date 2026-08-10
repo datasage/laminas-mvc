@@ -11,7 +11,7 @@ use function uniqid;
 
 final class InvalidMiddlewareExceptionTest extends TestCase
 {
-    public function testFromMiddlewareName()
+    public function testFromMiddlewareName(): void
     {
         $middlewareName = uniqid('middlewareName', true);
         $exception      = InvalidMiddlewareException::fromMiddlewareName($middlewareName);
@@ -21,13 +21,13 @@ final class InvalidMiddlewareExceptionTest extends TestCase
         $this->assertSame($middlewareName, $exception->toMiddlewareName());
     }
 
-    public function testToMiddlewareNameWhenNotSet()
+    public function testToMiddlewareNameWhenNotSet(): void
     {
         $exception = new InvalidMiddlewareException();
         $this->assertSame('', $exception->toMiddlewareName());
     }
 
-    public function testFromNull()
+    public function testFromNull(): void
     {
         $exception = InvalidMiddlewareException::fromNull();
 

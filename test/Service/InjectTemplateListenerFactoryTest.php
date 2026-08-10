@@ -18,12 +18,12 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(InjectTemplateListenerFactory::class)]
 class InjectTemplateListenerFactoryTest extends TestCase
 {
-    public function testFactoryCanCreateInjectTemplateListener()
+    public function testFactoryCanCreateInjectTemplateListener(): void
     {
         $this->buildInjectTemplateListenerWithConfig([]);
     }
 
-    public function testFactoryCanSetControllerMap()
+    public function testFactoryCanSetControllerMap(): void
     {
         $listener = $this->buildInjectTemplateListenerWithConfig([
             'view_manager' => [
@@ -36,7 +36,7 @@ class InjectTemplateListenerFactoryTest extends TestCase
         $this->assertEquals('some/module', $listener->mapController("SomeModule"));
     }
 
-    public function testFactoryCanSetControllerMapViaArrayAccessVM()
+    public function testFactoryCanSetControllerMapViaArrayAccessVM(): void
     {
         $listener = $this->buildInjectTemplateListenerWithConfig([
             'view_manager' => new ArrayObject([

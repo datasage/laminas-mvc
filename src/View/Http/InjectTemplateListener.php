@@ -202,7 +202,7 @@ class InjectTemplateListener extends AbstractListenerAggregate
      *
      * @param boolean $preferRouteMatchController
      */
-    public function setPreferRouteMatchController($preferRouteMatchController)
+    public function setPreferRouteMatchController($preferRouteMatchController): void
     {
         $this->preferRouteMatchController = (bool) $preferRouteMatchController;
     }

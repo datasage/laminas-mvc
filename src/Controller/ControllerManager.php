@@ -81,7 +81,7 @@ class ControllerManager extends AbstractPluginManager
      *
      * @param DispatchableInterface $controller
      */
-    public function injectEventManager(ContainerInterface $container, $controller)
+    public function injectEventManager(ContainerInterface $container, $controller): void
     {
         if (! $controller instanceof EventManagerAwareInterface) {
             return;
@@ -98,7 +98,7 @@ class ControllerManager extends AbstractPluginManager
      *
      * @param DispatchableInterface $controller
      */
-    public function injectPluginManager(ContainerInterface $container, $controller)
+    public function injectPluginManager(ContainerInterface $container, $controller): void
     {
         if (! method_exists($controller, 'setPluginManager')) {
             return;

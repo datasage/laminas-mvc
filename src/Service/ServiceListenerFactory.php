@@ -149,7 +149,7 @@ class ServiceListenerFactory implements FactoryInterface
      * @param array $options
      * @throws ServiceListenerInterface For invalid $options types.
      */
-    private function injectServiceListenerOptions($options, ServiceListenerInterface $serviceListener)
+    private function injectServiceListenerOptions($options, ServiceListenerInterface $serviceListener): void
     {
         if (! is_array($options)) {
             throw new ServiceNotCreatedException(sprintf(
@@ -180,7 +180,7 @@ class ServiceListenerFactory implements FactoryInterface
      * @throws ServiceNotCreatedException For any missing configuration options.
      * @throws ServiceNotCreatedException For configuration options of invalid types.
      */
-    private function validatePluginManagerOptions($options, $name)
+    private function validatePluginManagerOptions($options, $name): void
     {
         if (! is_array($options)) {
             throw new ServiceNotCreatedException(sprintf(

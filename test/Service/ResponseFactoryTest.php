@@ -12,7 +12,7 @@ use Psr\Container\ContainerInterface;
 
 class ResponseFactoryTest extends TestCase
 {
-    public function testFactoryCreatesHttpResponse()
+    public function testFactoryCreatesHttpResponse(): void
     {
         $container = $this->createStub(ContainerInterface::class);
         $factory   = new ResponseFactory();

@@ -21,7 +21,7 @@ class ViewFeedStrategyFactoryTest extends TestCase
         return $container;
     }
 
-    public function testReturnsFeedStrategy()
+    public function testReturnsFeedStrategy(): void
     {
         $factory = new ViewFeedStrategyFactory();
         $result  = $factory($this->createContainer(), 'ViewFeedStrategy');

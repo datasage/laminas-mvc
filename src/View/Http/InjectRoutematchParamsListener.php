@@ -64,7 +64,7 @@ class InjectRoutematchParamsListener extends AbstractListenerAggregate
      *
      * @param  bool $overwrite
      */
-    public function setOverwrite($overwrite)
+    public function setOverwrite($overwrite): void
     {
         $this->overwrite = $overwrite;
     }

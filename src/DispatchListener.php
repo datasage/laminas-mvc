@@ -135,7 +135,7 @@ class DispatchListener extends AbstractListenerAggregate
         return $this->complete($return, $e);
     }
 
-    public function reportMonitorEvent(MvcEvent $e)
+    public function reportMonitorEvent(MvcEvent $e): void
     {
         $error     = $e->getError();
         $exception = $e->getParam('exception');

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class ViewPrefixPathStackResolverFactoryTest extends TestCase
 {
-    public function testCreateService()
+    public function testCreateService(): void
     {
         $serviceLocator = $this->createStub(ServiceLocatorInterface::class);
         $serviceLocator->method('get')->willReturn([

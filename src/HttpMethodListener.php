@@ -91,7 +91,7 @@ class HttpMethodListener extends AbstractListenerAggregate
         return $this->allowedMethods;
     }
 
-    public function setAllowedMethods(array $allowedMethods)
+    public function setAllowedMethods(array $allowedMethods): void
     {
         foreach ($allowedMethods as &$value) {
             $value = strtoupper($value);
@@ -110,7 +110,7 @@ class HttpMethodListener extends AbstractListenerAggregate
     /**
      * @param bool $enabled
      */
-    public function setEnabled($enabled)
+    public function setEnabled($enabled): void
     {
         $this->enabled = (bool) $enabled;
     }
