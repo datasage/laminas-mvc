@@ -20,7 +20,7 @@ class ViewManagerFactoryTest extends TestCase
         return $container;
     }
 
-    public function testReturnsHttpViewManager()
+    public function testReturnsHttpViewManager(): void
     {
         $factory = new ViewManagerFactory();
         $result  = $factory($this->createContainer(), 'ViewManager');

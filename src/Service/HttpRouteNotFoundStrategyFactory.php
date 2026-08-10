@@ -33,7 +33,7 @@ class HttpRouteNotFoundStrategyFactory implements FactoryInterface
     /**
      * Inject strategy with configured display_exceptions flag.
      */
-    private function injectDisplayExceptions(RouteNotFoundStrategy $strategy, array $config)
+    private function injectDisplayExceptions(RouteNotFoundStrategy $strategy, array $config): void
     {
         $flag = $config['display_exceptions'] ?? false;
         $strategy->setDisplayExceptions($flag);
@@ -42,7 +42,7 @@ class HttpRouteNotFoundStrategyFactory implements FactoryInterface
     /**
      * Inject strategy with configured display_not_found_reason flag.
      */
-    private function injectDisplayNotFoundReason(RouteNotFoundStrategy $strategy, array $config)
+    private function injectDisplayNotFoundReason(RouteNotFoundStrategy $strategy, array $config): void
     {
         $flag = $config['display_not_found_reason'] ?? false;
         $strategy->setDisplayNotFoundReason($flag);
@@ -51,7 +51,7 @@ class HttpRouteNotFoundStrategyFactory implements FactoryInterface
     /**
      * Inject strategy with configured not_found_template.
      */
-    private function injectNotFoundTemplate(RouteNotFoundStrategy $strategy, array $config)
+    private function injectNotFoundTemplate(RouteNotFoundStrategy $strategy, array $config): void
     {
         $template = $config['not_found_template'] ?? '404';
         $strategy->setNotFoundTemplate($template);

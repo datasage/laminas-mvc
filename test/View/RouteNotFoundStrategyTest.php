@@ -286,7 +286,7 @@ class RouteNotFoundStrategyTest extends TestCase
         $this->assertEquals('error', $this->strategy->getNotFoundTemplate());
     }
 
-    public function testNotFoundTemplateIsMutable()
+    public function testNotFoundTemplateIsMutable(): void
     {
         $this->strategy->setNotFoundTemplate('alternate/error');
         $this->assertEquals('alternate/error', $this->strategy->getNotFoundTemplate());

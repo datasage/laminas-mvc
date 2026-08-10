@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(HttpMethodListenerFactory::class)]
 class HttpMethodListenerFactoryTest extends TestCase
 {
-    public function testCreateWithDefaults()
+    public function testCreateWithDefaults(): void
     {
         $serviceLocator = $this->createMock(ServiceLocatorInterface::class);
         $factory        = new HttpMethodListenerFactory();
@@ -21,7 +21,7 @@ class HttpMethodListenerFactoryTest extends TestCase
         $this->assertNotEmpty($listener->getAllowedMethods());
     }
 
-    public function testCreateWithConfig()
+    public function testCreateWithConfig(): void
     {
         $config = [
             'http_methods_listener' => [

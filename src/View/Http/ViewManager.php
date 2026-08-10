@@ -264,7 +264,7 @@ class ViewManager extends AbstractListenerAggregate
     /**
      * Injects the ViewModel view helper with the root view model.
      */
-    private function injectViewModelIntoPlugin()
+    private function injectViewModelIntoPlugin(): void
     {
         $model   = $this->getViewModel();
         $plugins = $this->services->get('ViewHelperManager');

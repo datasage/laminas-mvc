@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ReachedFinalHandlerExceptionTest extends TestCase
 {
-    public function testFromNothing()
+    public function testFromNothing(): void
     {
         $exception = ReachedFinalHandlerException::create();
 

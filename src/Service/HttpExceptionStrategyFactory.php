@@ -32,7 +32,7 @@ class HttpExceptionStrategyFactory implements FactoryInterface
     /**
      * Inject strategy with configured display_exceptions flag.
      */
-    private function injectDisplayExceptions(ExceptionStrategy $strategy, array $config)
+    private function injectDisplayExceptions(ExceptionStrategy $strategy, array $config): void
     {
         $flag = $config['display_exceptions'] ?? false;
         $strategy->setDisplayExceptions($flag);
@@ -41,7 +41,7 @@ class HttpExceptionStrategyFactory implements FactoryInterface
     /**
      * Inject strategy with configured exception_template
      */
-    private function injectExceptionTemplate(ExceptionStrategy $strategy, array $config)
+    private function injectExceptionTemplate(ExceptionStrategy $strategy, array $config): void
     {
         $template = $config['exception_template'] ?? 'error';
         $strategy->setExceptionTemplate($template);

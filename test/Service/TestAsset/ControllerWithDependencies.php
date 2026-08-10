@@ -15,7 +15,7 @@ class ControllerWithDependencies implements DispatchableInterface
     /** @var stdClass */
     public $injectedValue;
 
-    public function setInjectedValue(stdClass $injected)
+    public function setInjectedValue(stdClass $injected): void
     {
         $this->injectedValue = $injected;
     }

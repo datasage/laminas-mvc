@@ -25,7 +25,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory = new ServiceListenerFactory();
     }
 
-    public function testInvalidOptionType()
+    public function testInvalidOptionType(): void
     {
         $this->sm->expects($this->once())
                  ->method('get')
@@ -37,7 +37,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testMissingServiceManager()
+    public function testMissingServiceManager(): void
     {
         $config['service_listener_options'][0]['service_manager'] = null;
         $config['service_listener_options'][0]['config_key']      = 'test';
@@ -56,7 +56,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testInvalidTypeServiceManager()
+    public function testInvalidTypeServiceManager(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 1;
         $config['service_listener_options'][0]['config_key']      = 'test';
@@ -75,7 +75,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testMissingConfigKey()
+    public function testMissingConfigKey(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = null;
@@ -94,7 +94,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testInvalidTypeConfigKey()
+    public function testInvalidTypeConfigKey(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = 1;
@@ -113,7 +113,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testMissingInterface()
+    public function testMissingInterface(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = 'test';
@@ -130,7 +130,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testInvalidTypeInterface()
+    public function testInvalidTypeInterface(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = 'test';
@@ -149,7 +149,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testMissingMethod()
+    public function testMissingMethod(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = 'test';
@@ -166,7 +166,7 @@ class ServiceListenerFactoryTest extends TestCase
         $this->factory->__invoke($this->sm, 'ServiceListener');
     }
 
-    public function testInvalidTypeMethod()
+    public function testInvalidTypeMethod(): void
     {
         $config['service_listener_options'][0]['service_manager'] = 'test';
         $config['service_listener_options'][0]['config_key']      = 'test';

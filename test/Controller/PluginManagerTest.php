@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class PluginManagerTest extends TestCase
 {
-    public function testPluginManagerInjectsControllerInPlugin()
+    public function testPluginManagerInjectsControllerInPlugin(): void
     {
         $controller    = new SampleController();
         $pluginManager = new PluginManager(new ServiceManager(), [
@@ -29,7 +29,7 @@ class PluginManagerTest extends TestCase
         $this->assertEquals($controller, $plugin->getController());
     }
 
-    public function testPluginManagerInjectsControllerForExistingPlugin()
+    public function testPluginManagerInjectsControllerForExistingPlugin(): void
     {
         $controller1   = new SampleController();
         $pluginManager = new PluginManager(new ServiceManager(), [
@@ -48,7 +48,7 @@ class PluginManagerTest extends TestCase
         $this->assertEquals($controller2, $plugin->getController());
     }
 
-    public function testGetWithConstructor()
+    public function testGetWithConstructor(): void
     {
         $pluginManager = new PluginManager(new ServiceManager(), [
             'aliases'   => ['samplePlugin' => SamplePluginWithConstructor::class],
@@ -58,7 +58,7 @@ class PluginManagerTest extends TestCase
         $this->assertEquals($plugin->getBar(), 'baz');
     }
 
-    public function testGetWithConstructorAndOptions()
+    public function testGetWithConstructorAndOptions(): void
     {
         $pluginManager = new PluginManager(new ServiceManager(), [
             'aliases'   => ['samplePlugin' => SamplePluginWithConstructor::class],
@@ -68,7 +68,7 @@ class PluginManagerTest extends TestCase
         $this->assertEquals($plugin->getBar(), ['foo']);
     }
 
-    public function testCanCreateByFactory()
+    public function testCanCreateByFactory(): void
     {
         $pluginManager = new PluginManager(new ServiceManager(), [
             'factories' => [
@@ -79,7 +79,7 @@ class PluginManagerTest extends TestCase
         $this->assertInstanceOf(SamplePlugin::class, $plugin);
     }
 
-    public function testCanCreateByFactoryWithConstrutor()
+    public function testCanCreateByFactoryWithConstrutor(): void
     {
         $pluginManager = new PluginManager(new ServiceManager(), [
             'factories' => [

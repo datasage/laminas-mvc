@@ -19,7 +19,7 @@ use RuntimeException;
 
 class SendResponseListenerFactoryTest extends TestCase
 {
-    public function testFactoryReturnsListenerWithEventManagerFromContainer()
+    public function testFactoryReturnsListenerWithEventManagerFromContainer(): void
     {
         $sharedEvents = $this->createStub(SharedEventManagerInterface::class);
         $events       = $this->createMock(EventManagerInterface::class);

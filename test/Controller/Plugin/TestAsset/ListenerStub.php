@@ -10,7 +10,7 @@ class ListenerStub
     {
     }
 
-    public function myCallback()
+    public function myCallback(): void
     {
     }
 }

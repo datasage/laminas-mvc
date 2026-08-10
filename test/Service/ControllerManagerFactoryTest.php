@@ -55,7 +55,7 @@ class ControllerManagerFactoryTest extends TestCase
         (new Config($this->defaultServiceConfig))->configureServiceManager($this->services);
     }
 
-    public function testCannotLoadInvalidDispatchable()
+    public function testCannotLoadInvalidDispatchable(): void
     {
         $loader = $this->services->get('ControllerManager');
 
@@ -74,7 +74,7 @@ class ControllerManagerFactoryTest extends TestCase
         }
     }
 
-    public function testCannotLoadControllerFromPeer()
+    public function testCannotLoadControllerFromPeer(): void
     {
         $services = new ServiceManager();
         (new Config(array_merge_recursive($this->defaultServiceConfig, [
@@ -88,7 +88,7 @@ class ControllerManagerFactoryTest extends TestCase
         $loader->get('foo');
     }
 
-    public function testControllerLoadedCanBeInjectedWithValuesFromPeer()
+    public function testControllerLoadedCanBeInjectedWithValuesFromPeer(): void
     {
         $loader = $this->services->get('ControllerManager');
         $loader->setAlias('LaminasTest\Dispatchable', Dispatchable::class);
@@ -100,7 +100,7 @@ class ControllerManagerFactoryTest extends TestCase
         $this->assertSame($this->services->get('ControllerPluginManager'), $controller->getPluginManager());
     }
 
-    public function testCallPluginWithControllerPluginManager()
+    public function testCallPluginWithControllerPluginManager(): void
     {
         $controllerPluginManager = $this->services->get('ControllerPluginManager');
         $controllerPluginManager->setAlias('samplePlugin', SamplePlugin::class);

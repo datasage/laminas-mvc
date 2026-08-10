@@ -15,7 +15,7 @@ use function ob_start;
 
 class PhpEnvironmentResponseSenderTest extends TestCase
 {
-    public function testSendResponseIgnoresInvalidResponseTypes()
+    public function testSendResponseIgnoresInvalidResponseTypes(): void
     {
         $mockResponse          = $this->createStub(ResponseInterface::class);
         $mockSendResponseEvent = $this->getSendResponseEventMock();
@@ -27,7 +27,7 @@ class PhpEnvironmentResponseSenderTest extends TestCase
         $this->assertEquals('', $body);
     }
 
-    public function testSendResponseTwoTimesPrintsResponseOnlyOnce()
+    public function testSendResponseTwoTimesPrintsResponseOnlyOnce(): void
     {
         $mockResponse = $this->createStub(Response::class);
         $mockResponse->method('getContent')->willReturn('body');

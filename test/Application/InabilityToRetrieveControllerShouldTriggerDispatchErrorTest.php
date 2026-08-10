@@ -14,7 +14,7 @@ class InabilityToRetrieveControllerShouldTriggerDispatchErrorTest extends TestCa
     use MissingControllerTrait;
 
     #[Group('error-handling')]
-    public function testInabilityToRetrieveControllerShouldTriggerDispatchError()
+    public function testInabilityToRetrieveControllerShouldTriggerDispatchError(): void
     {
         $application = $this->prepareApplication();
 

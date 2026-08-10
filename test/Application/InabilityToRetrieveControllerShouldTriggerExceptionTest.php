@@ -14,7 +14,7 @@ class InabilityToRetrieveControllerShouldTriggerExceptionTest extends TestCase
     use MissingControllerTrait;
 
     #[Group('error-handling')]
-    public function testInabilityToRetrieveControllerShouldTriggerExceptionError()
+    public function testInabilityToRetrieveControllerShouldTriggerExceptionError(): void
     {
         $application = $this->prepareApplication();
 

@@ -50,7 +50,7 @@ class ControllerManagerTest extends TestCase
         return new EventManager($sharedManager);
     }
 
-    public function testCanInjectEventManager()
+    public function testCanInjectEventManager(): void
     {
         $controller = new SampleController();
 
@@ -64,7 +64,7 @@ class ControllerManagerTest extends TestCase
         $this->assertSame($this->sharedEvents, $events->getSharedManager());
     }
 
-    public function testCanInjectPluginManager()
+    public function testCanInjectPluginManager(): void
     {
         $controller = new SampleController();
 
@@ -73,7 +73,7 @@ class ControllerManagerTest extends TestCase
         $this->assertSame($this->services->get('ControllerPluginManager'), $controller->getPluginManager());
     }
 
-    public function testInjectEventManagerWillNotOverwriteExistingEventManagerIfItAlreadyHasASharedManager()
+    public function testInjectEventManagerWillNotOverwriteExistingEventManagerIfItAlreadyHasASharedManager(): void
     {
         $events     = $this->createEventManager($this->sharedEvents);
         $controller = new SampleController();
@@ -85,7 +85,7 @@ class ControllerManagerTest extends TestCase
         $this->assertSame($this->sharedEvents, $events->getSharedManager());
     }
 
-    public function testDoNotUsePeeringServiceManagers()
+    public function testDoNotUsePeeringServiceManagers(): void
     {
         $this->assertFalse($this->controllers->has('EventManager'));
         $this->expectException(ServiceNotFoundException::class);

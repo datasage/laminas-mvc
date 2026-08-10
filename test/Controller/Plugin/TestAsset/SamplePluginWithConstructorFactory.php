@@ -20,7 +20,7 @@ class SamplePluginWithConstructorFactory implements FactoryInterface
         return new SamplePluginWithConstructor($options);
     }
 
-    public function setCreationOptions(array $options)
+    public function setCreationOptions(array $options): void
     {
         $this->options = $options;
     }

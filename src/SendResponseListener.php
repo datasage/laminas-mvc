@@ -118,7 +118,7 @@ class SendResponseListener extends AbstractListenerAggregate implements
      * All default response sender implementation have negative priority.
      * You are able to attach listeners without giving a priority and your response sender would be first to try.
      */
-    protected function attachDefaultListeners()
+    protected function attachDefaultListeners(): void
     {
         $events = $this->getEventManager();
         $events->attach(SendResponseEvent::EVENT_SEND_RESPONSE, new PhpEnvironmentResponseSender(), -1000);
