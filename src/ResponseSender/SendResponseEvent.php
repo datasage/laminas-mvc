@@ -5,7 +5,7 @@ namespace Laminas\Mvc\ResponseSender;
 use Laminas\EventManager\Event;
 use Laminas\Stdlib\ResponseInterface;
 
-use function spl_object_hash;
+use function spl_object_id;
 
 class SendResponseEvent extends Event
 {
@@ -54,7 +54,7 @@ class SendResponseEvent extends Event
     {
         $response                         = $this->getResponse();
         $contentSent                      = $this->getParam('contentSent', []);
-        $responseObjectHash               = spl_object_hash($response);
+        $responseObjectHash               = spl_object_id($response);
         $contentSent[$responseObjectHash] = true;
         $this->setParam('contentSent', $contentSent);
         $this->contentSent[$responseObjectHash] = true;
@@ -67,7 +67,7 @@ class SendResponseEvent extends Event
     public function contentSent()
     {
         $response = $this->getResponse();
-        if (isset($this->contentSent[spl_object_hash($response)])) {
+        if (isset($this->contentSent[spl_object_id($response)])) {
             return true;
         }
         return false;
@@ -82,7 +82,7 @@ class SendResponseEvent extends Event
     {
         $response                         = $this->getResponse();
         $headersSent                      = $this->getParam('headersSent', []);
-        $responseObjectHash               = spl_object_hash($response);
+        $responseObjectHash               = spl_object_id($response);
         $headersSent[$responseObjectHash] = true;
         $this->setParam('headersSent', $headersSent);
         $this->headersSent[$responseObjectHash] = true;
@@ -95,7 +95,7 @@ class SendResponseEvent extends Event
     public function headersSent()
     {
         $response = $this->getResponse();
-        if (isset($this->headersSent[spl_object_hash($response)])) {
+        if (isset($this->headersSent[spl_object_id($response)])) {
             return true;
         }
         return false;
