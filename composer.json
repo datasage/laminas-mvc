@@ -34,7 +34,7 @@
         "laminas/laminas-servicemanager": "^3.20.0",
         "laminas/laminas-stdlib": "^3.19",
         "laminas/laminas-view": "^2.18.0",
-        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
         "psr/container": "^1.1 || ^2.0"
     },
     "require-dev": {
